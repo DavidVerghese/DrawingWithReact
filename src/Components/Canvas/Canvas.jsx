@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './Canvas.css';
 
 function Canvas() {
 
