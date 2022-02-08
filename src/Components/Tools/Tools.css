@@ -18,6 +18,7 @@
   border: 2px solid white;
   align-self: center;
   margin: 0 10px;
+
 }
 
 .tools .button {
@@ -41,4 +42,17 @@
 .pen-range {
   align-self: center;
   margin: 0 15px;
+}
+
+#red-color-field {
+  background: red;
+}
+#blue-color-field {
+  background: blue;
+}
+#yellow-color-field {
+  background: rgb(201, 201, 33);
+}
+#green-color-field {
+  background: green;
 }
