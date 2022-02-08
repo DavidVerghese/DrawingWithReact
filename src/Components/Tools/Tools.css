@@ -1,8 +1,9 @@
 .tools {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: row;
   margin-top: 15px;
+  flex-wrap: wrap;
 }
 
 .tools .color-field {
@@ -17,7 +18,7 @@
   border-radius: 50%;
   border: 2px solid white;
   align-self: center;
-  margin: 0 10px;
+  margin: 0px 10px;
 
 }
 
@@ -30,18 +31,24 @@
   color: white;
   background: #222;
   font-weight: bold;
-  margin: 0 15px;
+  margin: 0px 8px;
 }
+.tools .buttons, .tools .colors, .tools .width {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 10px;
+}
+
 
 .color-picker {
   align-self: center;
-  margin: 0 15px;
+  margin: 0px;
   height: 50px;
 }
 
 .pen-range {
   align-self: center;
-  margin: 0 15px;
+  margin: 0px;
 }
 
 #red-color-field {
