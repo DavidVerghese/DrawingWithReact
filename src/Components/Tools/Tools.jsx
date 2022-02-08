@@ -5,10 +5,10 @@ function Tools() {
   <button id="clear" type="button" className="button">Clear</button>
 
       
-      <div  id="red-color-field" className="color-field" style={{ background: 'red' }}></div>
-<div   id="blue-color-field" className="color-field" style={{ background: 'blue' }}></div>
-<div  id="green-color-field" className="color-field" style={{ background: 'green' }}></div>
-<div   id="yellow-color-field" className="color-field" style={{ background: 'yellow' }}></div>
+      <div  id="red-color-field" className="color-field" ></div>
+<div   id="blue-color-field" className="color-field" ></div>
+<div  id="green-color-field" className="color-field" ></div>
+<div   id="yellow-color-field" className="color-field"></div>
 
   <input id="color-picker"  type="color" className="color-picker"/>
   <input  type="range" min="1" max="100" id="pen-range" className="pen-range" />
