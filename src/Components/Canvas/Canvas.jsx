@@ -3,13 +3,15 @@ import './Canvas.css';
 
 function Canvas() {
 
+
   useEffect(() => { 
 
     let width = "2";
     let color = 'gray';
 
     const canvas = document.getElementById("canvas");
-    
+    let mouseCursor = document.querySelector(".cursor");
+
     canvas.width = window.innerWidth - 100;
     canvas.height = 400;
 
@@ -35,12 +37,14 @@ let index = -1;
 
 
 canvas.addEventListener("touchstart", start, false);
-canvas.addEventListener("touchmove", draw, false);
+    canvas.addEventListener("touchmove", draw, false);
+    canvas.addEventListener("mouseenter", () => mouseCursor.style.display = "flex",false)
 canvas.addEventListener("mousedown", start, false);
     canvas.addEventListener("mousemove", draw, false);
     canvas.addEventListener("touchend", stopDrawing, false);
 canvas.addEventListener("mouseup", stopDrawing, false);
-canvas.addEventListener("mouseout", stopDrawing, false);
+    canvas.addEventListener("mouseout", stopDrawing, false);
+    canvas.addEventListener("mouseout", () => mouseCursor.style.display = "none",false)
 
 function start(event) {
   is_drawing = true;
@@ -106,17 +110,28 @@ function clear_canvas() {
     document.querySelector('#clear').addEventListener("click",clear_canvas)
     document.querySelector('#undo').addEventListener("click", undo_last);
     
-    document.querySelector('#red-color-field').addEventListener("click", () => color = 'red')
-    document.querySelector('#blue-color-field').addEventListener("click", () => color = 'blue')
-    document.querySelector('#green-color-field').addEventListener("click", () => color = 'green')
-    document.querySelector('#yellow-color-field').addEventListener("click", () => color = 'yellow')
+    document.querySelector('#red-color-field').addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
+    document.querySelector('#blue-color-field').addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
+    document.querySelector('#green-color-field').addEventListener("click", () => { color = 'green'; mouseCursor.style.color = color})
+    document.querySelector('#yellow-color-field').addEventListener("click", () => { color = 'yellow'; mouseCursor.style.color = color})
 
-    document.querySelector('#color-picker').addEventListener("input", (e) => color = e.target.value)
-    document.querySelector('#pen-range').addEventListener("input", (e) => width =e.target.value)
+    document.querySelector('#color-picker').addEventListener("input", (e) => { color = e.target.value; mouseCursor.style.color = color })
+    document.querySelector('#pen-range').addEventListener("input", (e) => width = e.target.value)
+    
+
+
+    window.addEventListener('mousemove', cursor);
+  
+  function cursor(e) {
+    mouseCursor.style.top = e.pageY + 'px';
+    mouseCursor.style.left = e.pageX + 'px';
+  }
+    
+  mouseCursor.style.color = color;
     
   })
 
-  return <canvas id="canvas"></canvas> 
+  return <div><div className="cursor"> <i class="fa fa-paint-brush"></i></div><canvas id="canvas"></canvas> </div>
   
 }
 export default Canvas;
