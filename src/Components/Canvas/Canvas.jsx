@@ -14,11 +14,11 @@ function Canvas() {
     canvas.height = 400;
 
     let context = canvas.getContext("2d");
-    let start_background_color = "white"; 
-context.fillStyle = start_background_color;
+//     let start_background_color = "white"; 
+// context.fillStyle = start_background_color;
     context.fillRect(0, 0, canvas.width, canvas.height);
     
-    var background = new Image();
+    const background = new Image();
 background.src = "https://images.unsplash.com/photo-1612538498613-35c5c8d675c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80";
 
 // Make sure the image is loaded first otherwise nothing will draw.
@@ -77,7 +77,12 @@ function start(event) {
   }
 
 function clear_canvas() {
-  context.fillStyle = start_background_color;
+  // context.fillStyle = start_background_color;
+  const background = new Image();
+  background.src = "https://images.unsplash.com/photo-1612538498613-35c5c8d675c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80";
+  background.onload = function(){
+    context.drawImage(background,0,0);   
+}
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillRect(0, 0, canvas.width, canvas.height);
   restore_array = [];
