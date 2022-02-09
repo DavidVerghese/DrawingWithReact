@@ -19,7 +19,8 @@ function Canvas() {
     context.fillRect(0, 0, canvas.width, canvas.height);
     
     const background = new Image();
-background.src = "https://images.unsplash.com/photo-1612538498613-35c5c8d675c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80";
+    background.src = require("../../Pictures/Canvas.jpeg");
+    background.setAttribute('crossOrigin', '');
 
 // Make sure the image is loaded first otherwise nothing will draw.
 background.onload = function(){
@@ -62,17 +63,18 @@ function start(event) {
   }
     };
 
-  function stopDrawing(event) {
+    function stopDrawing(event) {
+      
     if (is_drawing) {
       context.stroke();
       context.closePath();
       is_drawing = false;
     }
     event.preventDefault();
-    if (event.type !== "mouseout") {
+    if (event.type === "mouseup") {
       restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
-  index += 1;
-  }
+      index += 1;
+    }
 
   }
 
@@ -80,6 +82,7 @@ function clear_canvas() {
   // context.fillStyle = start_background_color;
   const background = new Image();
   background.src = "https://images.unsplash.com/photo-1612538498613-35c5c8d675c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80";
+  background.setAttribute('crossOrigin', '');
   background.onload = function(){
     context.drawImage(background,0,0);   
 }
@@ -89,7 +92,8 @@ function clear_canvas() {
   index = -1;
 }
     
-function undo_last() {
+    function undo_last() {
+      console.log(index);
   if (index <= 0) {
     clear_canvas();
   } else {
