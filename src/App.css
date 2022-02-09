@@ -3,8 +3,9 @@ body {
   margin: 0px;
   padding: 30px;
   overflow: hidden;
-  background: #313131;
-  color: white;
+  /* background: #313131; */
+  background-color: #edd88d;
+  color: black;
 }
 
 .app {
@@ -13,5 +14,12 @@ body {
   align-items: center;
 }
 
+button {
+  background-color: black;
+  color: white;
+}
+header {
+
+}
 
 
