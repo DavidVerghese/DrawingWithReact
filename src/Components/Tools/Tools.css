@@ -4,6 +4,9 @@
   flex-direction: row;
   margin-top: 15px;
   flex-wrap: wrap;
+  background-color: #011d13;
+  box-shadow: -3px 2px 9px 6px #033652;
+  
 }
 
 .tools .color-field {
@@ -28,8 +31,8 @@
   height: 40px;
   border: 2px solid white;
   cursor: pointer;
-  color: white;
-  background: #222;
+  /* color: white; */
+  /* background: #222; */
   font-weight: bold;
   margin: 0px 8px;
 }
