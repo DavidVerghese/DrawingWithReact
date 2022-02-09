@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
 
 body {
   margin: 0px;
@@ -5,6 +6,12 @@ body {
   overflow: hidden;
   color: black;
   background-color: #edd88d;
+  font-family: 'Oleo Script', cursive;
+  font-size: 20px;
+}
+
+button {
+  /* font-family: 'Oleo Script', cursive; */
 }
 
 .app {
