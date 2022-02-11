@@ -7,6 +7,7 @@ function Canvas() {
 
     let title = 'untitled.png';
     let imageType = 'image/png';
+    let imageQuality = 1;
 
     let width = "2";
     let color = 'gray';
@@ -114,7 +115,10 @@ function clear_canvas() {
     document.querySelector('#download').addEventListener("click", download);
     document.querySelector('#title').addEventListener('input', (e) => { title = (e.target.value) });
     document.querySelector('#jpeg').addEventListener('click', (e) => { imageType = 'image/jpeg';console.log(imageType) });
-    document.querySelector('#png').addEventListener('click', (e) => { imageType = 'image/png'});
+    document.querySelector('#png').addEventListener('click', (e) => { imageType = 'image/png' });
+    document.querySelector('#high-quality').addEventListener('click', (e) => { imageQuality = 1 });
+    document.querySelector('#medium-quality').addEventListener('click', (e) => { imageQuality = 0.5 });
+    document.querySelector('#low-quality').addEventListener('click', (e) => { imageQuality = 0.1});
     
     document.querySelector('#red-color-field').addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
     document.querySelector('#blue-color-field').addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
@@ -139,7 +143,7 @@ function clear_canvas() {
       console.log(imageType);
 var link = document.createElement('a');
       link.download = title;
-link.href = canvas.toDataURL(imageType)
+      link.href = canvas.toDataURL(imageType, imageQuality);
 link.click();
       
     }
@@ -153,8 +157,9 @@ link.click();
         <input id="title" type="text" />
       </label>
       <label> <p>Quality: </p>
-        <input id="quality" type="text" />
-
+        <button id="high-quality">High</button>
+        <button id="medium-quality">Medium</button>
+        <button id="low-quality">Low</button>
       </label>
       <label> <p>Image Type : </p>
         <button id="jpeg">jpeg</button>
