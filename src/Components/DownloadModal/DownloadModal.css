@@ -15,3 +15,11 @@
   margin: 20px;
   padding: 3px;
 }
+.download-modal label {
+  display: flex;
+  align-items: center;
+}
+.download-modal input {
+  height: 20px;
+  margin: 0px 10px;
+}

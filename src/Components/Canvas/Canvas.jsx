@@ -4,11 +4,14 @@ import DownloadModal from "../DownloadModal/DownloadModal";
 function Canvas() {
 
 
+  // let title = 'untitled.png';
+  const [title, setTitle] = useState('untitled');
+ 
   useEffect(() => { 
 
     let width = "2";
     let color = 'gray';
-
+    
     const canvas = document.getElementById("canvas");
     let mouseCursor = document.querySelector(".cursor");
 
@@ -109,8 +112,8 @@ function clear_canvas() {
 
     document.querySelector('#clear').addEventListener("click",clear_canvas)
     document.querySelector('#undo').addEventListener("click", undo_last);
-    document.querySelector('#download').addEventListener("click", download);
-    
+     document.querySelector('#download').addEventListener("click", download);
+
     document.querySelector('#red-color-field').addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
     document.querySelector('#blue-color-field').addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
     document.querySelector('#green-color-field').addEventListener("click", () => { color = 'green'; mouseCursor.style.color = color})
@@ -131,19 +134,24 @@ function clear_canvas() {
     mouseCursor.style.color = color;
     
     function download() {
-      
+      console.log(title);
 var link = document.createElement('a');
-link.download = 'canvas_painting.png';
+      link.download = title;
 link.href = canvas.toDataURL()
 link.click();
       
     }
+
+   
+
     
-  })
+  }, )
+
+  console.log(title);
 
   return <div>
    
-  <DownloadModal/>
+    <DownloadModal title={title} setTitle={setTitle}/>
     
     <div className="cursor"> <i className="fa fa-paint-brush"></i></div><canvas id="canvas"></canvas> </div> 
 }

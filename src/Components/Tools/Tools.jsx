@@ -5,7 +5,7 @@ function Tools() {
     <div className="buttons">
       <button id="undo" type="button" className="button">Undo</button>
       <button id="clear" type="button" className="button">Clear</button>
-      <button id="download" type="button" className="button">Download</button>
+      {/* <button id="download" type="button" className="button">Download</button> */}
     </div>
  
 
