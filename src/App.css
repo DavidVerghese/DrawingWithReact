@@ -14,8 +14,18 @@ a {
   text-decoration: none;
   color: white;
 }
+
+
 button {
-  /* font-family: 'Oleo Script', cursive; */
+  align-self: center;
+  width: 100px;
+  height: 40px;
+  border: 2px solid white;
+  cursor: pointer;
+  color: white;
+  background: #222;
+  font-weight: bold;
+  margin: 0px 8px;
 }
 
 .app {
