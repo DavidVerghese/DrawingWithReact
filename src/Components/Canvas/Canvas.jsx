@@ -131,19 +131,6 @@ function clear_canvas() {
     mouseCursor.style.color = color;
     
     function download() {
-//       var canvas = document.getElementById("canvas");
-//       let image = new Image();
-//       image.src = canvas.toDataURL();
-//       console.log(canvas.toDataURL())
-//       // window.open(canvas.toDataURL(), '_blank');
-
-
-//       var string = canvas.toDataURL();
-// var iframe = "<iframe width='100%' height='100%' src='" + string + "'></iframe>"
-// var x = window.open();
-// x.document.open();
-// x.document.write(iframe);
-//       x.document.close();
       
 var link = document.createElement('a');
 link.download = 'canvas_painting.png';
