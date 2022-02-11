@@ -143,7 +143,7 @@ link.click();
 
   return <div>
    
-  <DownloadModal/>
+  {/* <DownloadModal/> */}
     
     <div className="cursor"> <i className="fa fa-paint-brush"></i></div><canvas id="canvas"></canvas> </div> 
 }
