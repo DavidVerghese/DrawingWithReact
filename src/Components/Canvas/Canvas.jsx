@@ -109,6 +109,7 @@ function clear_canvas() {
 
     document.querySelector('#clear').addEventListener("click",clear_canvas)
     document.querySelector('#undo').addEventListener("click", undo_last);
+    document.querySelector('#download').addEventListener("click", download);
     
     document.querySelector('#red-color-field').addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
     document.querySelector('#blue-color-field').addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
@@ -127,7 +128,16 @@ function clear_canvas() {
     mouseCursor.style.left = e.pageX + 'px';
   }
     
-  mouseCursor.style.color = color;
+    mouseCursor.style.color = color;
+    
+    function download() {
+      
+var link = document.createElement('a');
+link.download = 'canvas_painting.png';
+link.href = canvas.toDataURL()
+link.click();
+      
+    }
     
   })
 

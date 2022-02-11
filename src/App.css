@@ -10,6 +10,10 @@ body {
   font-size: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
 button {
   /* font-family: 'Oleo Script', cursive; */
 }
