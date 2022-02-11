@@ -24,17 +24,7 @@
 
 }
 
-.tools .button {
-  align-self: center;
-  width: 100px;
-  height: 40px;
-  border: 2px solid white;
-  cursor: pointer;
-  color: white;
-  background: #222;
-  font-weight: bold;
-  margin: 0px 8px;
-}
+
 .tools .buttons, .tools .colors, .tools .width {
   display: flex;
   justify-content: space-around;
