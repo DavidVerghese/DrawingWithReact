@@ -141,7 +141,7 @@ link.click();
     
   })
 
-  return <div><div className="cursor"> <i class="fa fa-paint-brush"></i></div><canvas id="canvas"></canvas> </div>
+  return <div><div className="cursor"> <i className="fa fa-paint-brush"></i></div><canvas id="canvas"></canvas> </div>
   
 }
 export default Canvas;
