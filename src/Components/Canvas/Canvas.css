@@ -20,3 +20,7 @@ canvas {
  transform: translate(-40%, -60%);
  pointer-events: none;
 }
+
+.download-options {
+  display: flex;
+}

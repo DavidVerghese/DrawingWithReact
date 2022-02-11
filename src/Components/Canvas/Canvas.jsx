@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import './Canvas.css';
-import DownloadModal from "../DownloadModal/DownloadModal";
 function Canvas() {
 
 
   useEffect(() => { 
+
+    let title = 'untitled.png';
+    let imageType = 'image/png';
 
     let width = "2";
     let color = 'gray';
@@ -110,6 +112,9 @@ function clear_canvas() {
     document.querySelector('#clear').addEventListener("click",clear_canvas)
     document.querySelector('#undo').addEventListener("click", undo_last);
     document.querySelector('#download').addEventListener("click", download);
+    document.querySelector('#title').addEventListener('input', (e) => { title = (e.target.value) });
+    document.querySelector('#jpeg').addEventListener('click', (e) => { imageType = 'image/jpeg';console.log(imageType) });
+    document.querySelector('#png').addEventListener('click', (e) => { imageType = 'image/png'});
     
     document.querySelector('#red-color-field').addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
     document.querySelector('#blue-color-field').addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
@@ -131,10 +136,10 @@ function clear_canvas() {
     mouseCursor.style.color = color;
     
     function download() {
-      
+      console.log(imageType);
 var link = document.createElement('a');
-link.download = 'canvas_painting.png';
-link.href = canvas.toDataURL()
+      link.download = title;
+link.href = canvas.toDataURL(imageType)
 link.click();
       
     }
@@ -143,8 +148,21 @@ link.click();
 
   return <div>
    
-  <DownloadModal/>
-    
+   <div className="download-options">
+      <label> <p>Title: </p>
+        <input id="title" type="text" />
+      </label>
+      <label> <p>Quality: </p>
+        <input id="quality" type="text" />
+
+      </label>
+      <label> <p>Image Type : </p>
+        <button id="jpeg">jpeg</button>
+        <button id="png">png</button>
+      </label>
+      
+    </div>
+ 
     <div className="cursor"> <i className="fa fa-paint-brush"></i></div><canvas id="canvas"></canvas> </div> 
 }
 export default Canvas;
