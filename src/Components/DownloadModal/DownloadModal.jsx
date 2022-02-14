@@ -38,7 +38,7 @@ function DownloadModal() {
     <form>
     <label>
     <p>Title: </p>
-    <input id="download-title" type="text" name="name" />
+    <input placeholder="untitled" id="download-title" type="text" name="name" />
     </label>
 
     {/* <label>
