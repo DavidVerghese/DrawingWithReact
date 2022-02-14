@@ -7,6 +7,7 @@ function Canvas() {
 
     let width = "2";
     let color = 'gray';
+    let title = 'untitled';
 
 
     const canvas = document.getElementById("canvas");
@@ -109,8 +110,13 @@ function clear_canvas() {
 
     document.querySelector('#clear').addEventListener("click",clear_canvas)
     document.querySelector('#undo').addEventListener("click", undo_last);
+  
 
-    if (document.querySelector('#download-modal')) { document.querySelector('#start-download').addEventListener("click", download) }
+    if (document.querySelector('#download-modal')) {
+      document.querySelector('#download-title').addEventListener("input", (e) => title = e.target.value);
+      console.log(title);
+      document.querySelector('#start-download').addEventListener("click", download);
+    }
     
     document.querySelector('#red-color-field').addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
     document.querySelector('#blue-color-field').addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
@@ -134,7 +140,7 @@ function clear_canvas() {
     function download() {
       
 var link = document.createElement('a');
-link.download = 'canvas_painting.png';
+link.download = title;
 link.href = canvas.toDataURL()
 link.click();
       

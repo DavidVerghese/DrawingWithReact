@@ -11,6 +11,7 @@ function DownloadModal() {
     const modal = document.getElementById("download-modal");
     const btn = document.querySelector("#download");
     const close = document.getElementsByClassName("close")[0];
+    const downloadTitle = document.getElementById("download-title");
     
     btn.onclick = function () {
       modal.style.display = "flex";
@@ -21,7 +22,7 @@ function DownloadModal() {
     };
 
     window.onclick = function (event) {
-      if (modalIsOpen && event.target !== modal && event.target !== btn) {
+      if (modalIsOpen && event.target !== modal && event.target !== btn && event.target !== downloadTitle) {
         modal.style.display = "none";
         setModalIsOpen(false);
       }
@@ -32,9 +33,21 @@ function DownloadModal() {
 
   return (    <div id="download-modal" className="modal">
       
-  <h2>Download your painting</h2>
-    <input type="text" />
-    <button id="start-download">Start download</button>
+    <h2>Download your painting</h2>
+    
+    <form>
+    <label>
+    <p>Title: </p>
+    <input id="download-title" type="text" name="name" />
+    </label>
+
+    {/* <label>
+    File Type:
+    <input type="text" name="name" />
+      </label> */}
+    </form>
+    
+    <button id="start-download">OK</button>
     <button className="close">Close</button>
 
 </div>)
