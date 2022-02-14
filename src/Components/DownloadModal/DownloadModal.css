@@ -30,8 +30,10 @@
 .modal form label {
   width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 .modal input, .modal select {
   height: 20px;
+  margin: 0px 10px;
 }
