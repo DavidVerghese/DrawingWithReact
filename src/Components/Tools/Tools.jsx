@@ -1,13 +1,18 @@
 import './Tools.css';
+import DownloadModal from '../DownloadModal/DownloadModal';
 function Tools() {
 
+
+  
   return <div className="tools">
     <div className="buttons">
       <button id="undo" type="button" className="button">Undo</button>
       <button id="clear" type="button" className="button">Clear</button>
       <button id="download" type="button" className="button">Download</button>
     </div>
- 
+
+    <DownloadModal/>
+  
 
     <div className="colors">
        <div  id="red-color-field" className="color-field" ></div>
