@@ -55,3 +55,27 @@
 #green-color-field {
   background: green;
 }
+
+
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1;
+  left: 40%;
+  top: 40%;
+
+  overflow: auto; 
+  background-color: #044060;
+  color: #a0ebf9f9;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 10px;
+}
+
+.modal button {
+  margin: 20px;
+  padding: 3px;
+}

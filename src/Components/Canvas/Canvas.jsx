@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import './Canvas.css';
-import DownloadModal from "../DownloadModal/DownloadModal";
 function Canvas() {
 
 
@@ -109,7 +108,7 @@ function clear_canvas() {
 
     document.querySelector('#clear').addEventListener("click",clear_canvas)
     document.querySelector('#undo').addEventListener("click", undo_last);
-    document.querySelector('#download').addEventListener("click", download);
+    // document.querySelector('#download').addEventListener("click", download);
     
     document.querySelector('#red-color-field').addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
     document.querySelector('#blue-color-field').addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
@@ -143,7 +142,6 @@ link.click();
 
   return <div>
    
-  {/* <DownloadModal/> */}
     
     <div className="cursor"> <i className="fa fa-paint-brush"></i></div><canvas id="canvas"></canvas> </div> 
 }

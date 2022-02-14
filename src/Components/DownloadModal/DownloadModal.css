@@ -1,17 +1,22 @@
-.download-modal {
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1;
+  left: 40%;
+  top: 40%;
+
+  overflow: auto; 
   background-color: #044060;
   color: #a0ebf9f9;
-  display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin: 30px auto;
-  padding: 20px;
-  min-width: 450px;
-  max-width: 600px;
-  width: 70%;
+
+  padding: 10px;
 }
-.download-modal button {
+
+.modal button {
   margin: 20px;
   padding: 3px;
 }
