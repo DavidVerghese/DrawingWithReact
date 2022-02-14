@@ -33,8 +33,9 @@ function DownloadModal() {
   return (    <div id="download-modal" className="modal">
       
   <h2>Download your painting</h2>
-  <input type="text" />
-  <button className="close">Close</button>
+    <input type="text" />
+    <button id="start-download">Start download</button>
+    <button className="close">Close</button>
 
 </div>)
 }

@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import './Canvas.css';
 function Canvas() {
 
-
+  
   useEffect(() => { 
 
     let width = "2";
     let color = 'gray';
+
 
     const canvas = document.getElementById("canvas");
     let mouseCursor = document.querySelector(".cursor");
@@ -108,7 +109,8 @@ function clear_canvas() {
 
     document.querySelector('#clear').addEventListener("click",clear_canvas)
     document.querySelector('#undo').addEventListener("click", undo_last);
-    // document.querySelector('#download').addEventListener("click", download);
+
+    if (document.querySelector('#download-modal')) { document.querySelector('#start-download').addEventListener("click", download) }
     
     document.querySelector('#red-color-field').addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
     document.querySelector('#blue-color-field').addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
