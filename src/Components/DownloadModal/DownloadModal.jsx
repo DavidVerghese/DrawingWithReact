@@ -12,6 +12,7 @@ function DownloadModal() {
     const btn = document.querySelector("#download");
     const close = document.getElementsByClassName("close")[0];
     const downloadTitle = document.getElementById("download-title");
+    const fileType = document.getElementById("file-type");
     
     btn.onclick = function () {
       modal.style.display = "flex";
@@ -22,7 +23,7 @@ function DownloadModal() {
     };
 
     window.onclick = function (event) {
-      if (modalIsOpen && event.target !== modal && event.target !== btn && event.target !== downloadTitle) {
+      if (modalIsOpen && event.target !== modal && event.target !== btn && event.target !== downloadTitle && event.target !== fileType) {
         modal.style.display = "none";
         setModalIsOpen(false);
       }
@@ -41,10 +42,15 @@ function DownloadModal() {
     <input placeholder="untitled" id="download-title" type="text" name="name" />
     </label>
 
-    {/* <label>
-    File Type:
-    <input type="text" name="name" />
-      </label> */}
+    <label>
+        <p>File type: </p>
+
+        <select id="file-type" name="file-type">
+  <option value="png">png</option>
+  <option value="jpeg">jpeg</option>
+        </select>
+        
+    </label>
     </form>
     
     <button id="start-download">OK</button>

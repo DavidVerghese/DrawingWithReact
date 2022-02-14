@@ -8,7 +8,7 @@ function Canvas() {
     let width = "2";
     let color = 'gray';
     let title = 'untitled';
-
+    let fileType = 'jpeg';
 
     const canvas = document.getElementById("canvas");
     let mouseCursor = document.querySelector(".cursor");
@@ -115,6 +115,7 @@ function clear_canvas() {
     if (document.querySelector('#download-modal')) {
       document.querySelector('#download-title').addEventListener("input", (e) => title = e.target.value);
       console.log(title);
+      document.querySelector('#file-type').addEventListener('change',(e)=>{fileType = e.target.value})
       document.querySelector('#start-download').addEventListener("click", download);
     }
     
@@ -141,7 +142,7 @@ function clear_canvas() {
       
 var link = document.createElement('a');
 link.download = title;
-link.href = canvas.toDataURL()
+link.href = canvas.toDataURL(`image/${fileType}`)
 link.click();
       
     }
