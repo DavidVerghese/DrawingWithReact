@@ -1,0 +1,45 @@
+.color-field {
+  height: 40px;
+  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
+  cursor: pointer;
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid white;
+  align-self: center;
+  margin: 0px 10px;
+
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px 10px;
+  background-color: black;
+  box-shadow: -3px 2px 9px 6px #033652;
+  color: white;
+  width: 70px;
+  height: 100%;
+}
+
+.color-picker {
+  align-self: center;
+  margin: 0px;
+  height: 50px;
+}
+#red-color-field {
+  background: red;
+}
+#blue-color-field {
+  background: blue;
+}
+#yellow-color-field {
+  background: rgb(201, 201, 33);
+}
+#green-color-field {
+  background: green;
+}

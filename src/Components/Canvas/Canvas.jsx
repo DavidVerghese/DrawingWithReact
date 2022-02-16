@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import './Canvas.css';
+import ColorPanel from "../ColorPanel/ColorPanel";
 function Canvas() {
 
   
@@ -149,9 +150,9 @@ link.click();
     
   })
 
-  return <div>
+  return <div className="canvas-container">
    
-    
+    <ColorPanel/>
     <div className="cursor"> <i className="fa fa-paint-brush"></i></div><canvas id="canvas"></canvas> </div> 
 }
 export default Canvas;

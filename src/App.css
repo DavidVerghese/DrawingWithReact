@@ -6,7 +6,6 @@ body {
   overflow: hidden;
   color: black;
   background-color: #edd88d;
-  font-family: 'Oleo Script', cursive;
   font-size: 20px;
 }
 
@@ -28,6 +27,9 @@ button {
   margin: 0px 8px;
 }
 
+h1, h2 {
+  font-family: 'Oleo Script', cursive;
+}
 .app {
   display: flex;
   flex-direction: column;
