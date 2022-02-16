@@ -1,5 +1,6 @@
 import './Tools.css';
 import DownloadModal from '../DownloadModal/DownloadModal';
+import ColorPanel from '../ColorPanel/ColorPanel';
 function Tools() {
 
 
@@ -13,17 +14,19 @@ function Tools() {
 
     <DownloadModal/>
   
+    {/* <ColorPanel/> */}
 
-    <div className="colors">
+    {/* <div className="colors">
+      <p>Color: </p>
        <div  id="red-color-field" className="color-field" ></div>
 <div   id="blue-color-field" className="color-field" ></div>
 <div  id="green-color-field" className="color-field" ></div>
 <div   id="yellow-color-field" className="color-field"></div>
-
+<p>Custom color: </p>
  <input id="color-picker"  type="color" className="color-picker"/>
-      </div>
-     
-    <div className="width"> <input type="range" min="1" max="100" id="pen-range" className="pen-range" /></div>
+      </div> */}
+    
+    <div className="width">  <p>Brush size: </p> <input type="range" min="1" max="100" id="pen-range" className="pen-range" /></div>
    
 </div>
 }
