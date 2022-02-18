@@ -1,9 +1,20 @@
+.fa-paint-brush {
+  font-size: 24px;
+}
+.fa-brush {
+  font-size: 24px;
+}
+.fa-paint-roller {
+  font-size: 36px;
+}
 .tools {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-direction: row;
   margin-top: 40px;
   flex-wrap: wrap;
+  width: 100%;
   background-color: black;
   box-shadow: -3px 2px 9px 6px #033652;
   color: white;
@@ -11,7 +22,7 @@
 
 
 
-.tools .buttons, .tools .width {
+ .tools .width {
   display: flex;
   justify-content: space-around;
   margin: 10px 10px;

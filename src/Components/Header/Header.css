@@ -1,9 +1,14 @@
 header {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
+  font-size: 20px;
 }
 
+header a {
+  text-decoration: none;
+}
 header .logo {
   display: flex;
   align-items: center;
@@ -11,4 +16,7 @@ header .logo {
 
 .fa-solid .fa-paintbrush {
   font-size: 100px;
+}
+.header-tools {
+  display: flex;
 }

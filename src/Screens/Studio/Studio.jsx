@@ -3,7 +3,7 @@ import Tools from '../../Components/Tools/Tools';
 import Header from '../../Components/Header/Header';
 
 function Studio() {
-  return (<><Header />
+  return (<><Header studio={true} />
     <Canvas/>
       <Tools/> </>)
 }
