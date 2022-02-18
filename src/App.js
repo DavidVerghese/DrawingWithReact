@@ -1,19 +1,16 @@
 import './App.css';
-import Canvas from './Components/Canvas/Canvas';
-import Tools from './Components/Tools/Tools';
-import Header from './Components/Header/Header';
+import Studio from './Screens/Studio/Studio';
+import Homepage from './Screens/Homepage/Homepage';
+import { Route } from "react-router-dom";
 function App() {
 
-
-
-  
   return (<div className="app">
-    
-    <Header />
- 
-      <Canvas/>
-      <Tools/>
-
+    <Route exact path="/">
+      <Homepage/>
+    </Route>
+    <Route exact path="/canvas">
+      <Studio/>
+    </Route>
     </div>
   );
 }

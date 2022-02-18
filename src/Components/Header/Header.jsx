@@ -1,6 +1,8 @@
 import './Header.css';
 
 function Header() {
-  return <header><h2>Canvas</h2><h2>How to Use This</h2></header>
+  return <header>
+    <div className="logo"><h2>Canvas <i className="fa fa-paint-brush"></i></h2></div>
+   </header>
 }
 export default Header;
