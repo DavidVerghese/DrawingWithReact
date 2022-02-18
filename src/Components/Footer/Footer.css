@@ -1,0 +1,47 @@
+footer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #262228;
+  margin: 0px;
+  position: absolute;
+  bottom: 0;
+}
+footer a {
+  color: white;
+}
+footer img {
+  width: 50px;
+  height: 100%;
+}
+footer div {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.footer-pic {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+}
+.footer-pic img {
+  object-fit: fill;
+}
+.footer-linkedin-pic {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+@media only screen and (max-width: 500px) {
+  footer  {
+     /* flex-direction: column; */
+    /*justify-content: flex-start; */
+  }
+  footer {
+
+  }
+  footer div {
+    justify-content: center;
+  }
+}
