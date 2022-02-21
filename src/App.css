@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
 
-html {
-  -webkit-overflow-scrolling: touch;
-}
 
 body {
   margin: 0px;
@@ -11,7 +8,6 @@ body {
   background-color: #FFCE00;
   font-size: 20px;
   height: 100vh;
-  -webkit-overflow-scrolling: touch;
 }
 
 a {
