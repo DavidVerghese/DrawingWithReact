@@ -1,17 +1,21 @@
 import './Header.css';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPaintBrush,faUndo, faTrash, faSave } from "@fortawesome/free-solid-svg-icons"
+
 
 function Header(props) {
   const { studio } = props;
+  console.log(studio);
   return <header>
    
     {studio ? <>
-      <div className="logo"><Link to="/"><h2>{`< Canvas`} <i className="fa fa-paint-brush"></i></h2></Link></div>
-      <i id="undo" className="fa fa-undo" aria-hidden="true"></i>
+      <div className="logo"><Link to="/"><h2>{`< Canvas`} <FontAwesomeIcon icon={faPaintBrush} /></h2></Link></div>
+      <FontAwesomeIcon id="undo" icon={faUndo} />
+      <FontAwesomeIcon id="clear" icon={faTrash} />
+      <FontAwesomeIcon id="download" icon={faSave} />
       
-      <i id="clear" className="fas fa-trash-alt"></i>
-      <i id="download" className="fa fa-save"></i>
-    </> :  <div className="logo"><h2> Canvas <i className="fa fa-paint-brush"></i></h2></div>}
+    </> :  <div className="logo"><h2> Canvas   <FontAwesomeIcon icon={faPaintBrush} /></h2></div>}
   </header>
 }
 export default Header;
