@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import './Canvas.css';
 import ColorPanel from "../ColorPanel/ColorPanel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPaintBrush, faPaintRoller, faBrush } from "@fortawesome/free-solid-svg-icons"
+
 function Canvas() {
 
   
@@ -178,10 +181,17 @@ link.click();
    
     <ColorPanel/>
     <div className="cursor">
-      <i id="small-paintbrush-cursor" className="fa fa-paint-brush"></i>
+      {/* <i id="small-paintbrush-cursor" className="fa fa-paint-brush"></i>
       <i id="medium-paintbrush-cursor" className="fa fa-paint-brush"></i>
       <i id="large-paintbrush-cursor"  className="fas fa-brush"></i>
-      <i  id="paintroller-cursor" className='fas fa-paint-roller'></i>
+      <i id="paintroller-cursor" className='fas fa-paint-roller'></i> */}
+      
+
+      <FontAwesomeIcon id="small-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
+    <FontAwesomeIcon id="medium-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
+    <FontAwesomeIcon id="large-paintbrush-cursor" className="fa fa-paint-brush" icon={faBrush} />
+      <FontAwesomeIcon id="paintroller-cursor" className="fa fa-paint-brush" icon={faPaintRoller} />
+      
     </div>
     <canvas id="canvas"></canvas> </div> 
 }

@@ -22,15 +22,15 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
-  /* margin-top: 40px; */
+  margin-top: 40px;
   flex-wrap: wrap;
   width: 100%;
   background-color: black;
   box-shadow: -3px 2px 9px 6px #033652;
   color: white;
 
-  position: absolute;
-  bottom: 0;
+  /* position: absolute; */
+  /* bottom: 0; */
 }
 
 
