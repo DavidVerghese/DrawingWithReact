@@ -126,7 +126,13 @@ function clear_canvas() {
     document.querySelector('#yellow-color-field').addEventListener("click", () => { color = 'yellow'; mouseCursor.style.color = color})
 
     document.querySelector('#color-picker').addEventListener("input", (e) => { color = e.target.value; mouseCursor.style.color = color })
-    document.querySelector('#pen-range').addEventListener("input", (e) => width = e.target.value)
+    
+    document.querySelector('#small-paintbrush').addEventListener("click", (e) => width = 2)
+    document.querySelector('#medium-paintbrush').addEventListener("click", (e) => width = 15)
+    document.querySelector('#large-paintbrush').addEventListener("click", (e) => width = 40)
+    document.querySelector('#paintroller').addEventListener("click", (e) => width = 70)
+
+
     
 
 
