@@ -52,7 +52,7 @@ let index = -1;
 
 
 canvas.addEventListener("touchstart", start, false);
-    canvas.addEventListener("touchmove", draw, false);
+    canvas.addEventListener("touchmove", draw, { passive: false });
     canvas.addEventListener("mouseenter", () => mouseCursor.style.display = "flex",false)
 canvas.addEventListener("mousedown", start, false);
     canvas.addEventListener("mousemove", draw, false);
