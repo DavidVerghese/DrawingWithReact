@@ -28,9 +28,9 @@
   background-color: black;
   box-shadow: -3px 2px 9px 6px #033652;
   color: white;
-
-  /* position: absolute; */
-  /* bottom: 0; */
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
 }
 
 
