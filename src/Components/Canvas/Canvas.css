@@ -21,10 +21,12 @@ canvas {
 }
 .canvas-container #large-paintbrush-cursor {
   display: none;
+  font-size: 58px;
 }
 
 .canvas-container #paintroller-cursor {
   display: none;
+  font-size: 68px;
 }
 .cursor {
   display: none;
