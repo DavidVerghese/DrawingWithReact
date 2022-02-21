@@ -10,6 +10,7 @@ function Canvas() {
     let color = 'gray';
     let title = 'untitled';
     let fileType = 'png';
+    let currentCursor = 0;
 
     const canvas = document.getElementById("canvas");
     const smallPaintbrush = document.querySelector('#small-paintbrush');
@@ -139,13 +140,19 @@ function clear_canvas() {
     
     const switchCursorType = (paintbrushKey) => {
       const paintbrushes = [smallPaintbrushCursor, mediumPaintbrushCursor, largePaintbrushCursor, paintrollerCursor];
-      paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushes[key].style.display = 'flex' : paintbrushes[key].style.display = 'none')
+      const paintbrushIcons = [smallPaintbrush, mediumPaintbrush, largePaintbrush, paintroller];
+
+      paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushes[key].style.display = 'flex' : paintbrushes[key].style.display = 'none');
+      paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushIcons[key].style = 'outline: 1px dotted white' : paintbrushIcons[key].style = 'outline: 0px dotted white');
+      // paintbrushes.map((index)=>console.log(index.style.outline))
+
     };
 
-    smallPaintbrush.addEventListener("click", (e) => { width = 2; switchCursorType(0) });
-    mediumPaintbrush.addEventListener("click", (e) => { width = 15; switchCursorType(1) });
-    largePaintbrush.addEventListener("click", (e) => { width = 40; switchCursorType(2) });
-    paintroller.addEventListener("click", (e) => { width = 70; switchCursorType(3) });
+
+    smallPaintbrush.addEventListener("click", (e) => { width = 2; switchCursorType(0); currentCursor = 0 });
+    mediumPaintbrush.addEventListener("click", (e) => { width = 15; switchCursorType(1); currentCursor = 1 });
+    largePaintbrush.addEventListener("click", (e) => { width = 40; switchCursorType(2); currentCursor = 2 });
+    paintroller.addEventListener("click", (e) => { width = 70; switchCursorType(3); currentCursor = 3 });
 
     window.addEventListener('mousemove', cursor);
   

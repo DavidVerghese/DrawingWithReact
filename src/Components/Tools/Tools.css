@@ -1,14 +1,21 @@
 .tools .fa-paint-brush {
   font-size: 20px;
 }
+.tools #small-paintbrush {
+  outline: 1px dotted white;
+}
 .tools #medium-paintbrush {
   font-size: 25px;
+  padding: 10px;
 }
 .tools .fa-brush {
   font-size: 30px;
 }
 .tools .fa-paint-roller {
   font-size: 50px;
+}
+.tools i {
+  padding: 10px;
 }
 .tools {
   display: flex;
