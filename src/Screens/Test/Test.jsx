@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Test() {
 
-  window.addEventListener("touchmove", (e) => { setX(1002); setY(1002) }, { passive: false });
+  window.addEventListener("touchmove", (e) => {     e.preventDefault(); var touch = e.touches[0];    setX(touch.pageX); setY(touch.pageY) }, { passive: false });
   
   window.addEventListener("mousemove", (e) => { setX(e.clientX);setY(e.clientY) }, false);
 
