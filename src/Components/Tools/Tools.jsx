@@ -11,13 +11,10 @@ function Tools() {
     <DownloadModal/>
   
 
-    <i className="fa fa-paint-brush"></i>
-    <i className="fas fa-brush"></i>
-    <i className='fas fa-paint-roller'></i>
-
-    <p>Brush size: </p>  
-   
-    <div className="width"> <input type="range" min="1" max="100" id="pen-range" className="pen-range" /></div>
+    <i id="small-paintbrush" className="fa fa-paint-brush"></i>
+    <i id="medium-paintbrush" className="fa fa-paint-brush"></i>
+    <i id="large-paintbrush" className="fas fa-brush"></i>
+    <i id="paintroller" className='fas fa-paint-roller'></i>
    
 </div>
 }

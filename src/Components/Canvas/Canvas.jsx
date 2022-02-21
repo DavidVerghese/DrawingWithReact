@@ -12,6 +12,16 @@ function Canvas() {
     let fileType = 'png';
 
     const canvas = document.getElementById("canvas");
+    const smallPaintbrush = document.querySelector('#small-paintbrush');
+    const mediumPaintbrush = document.querySelector('#medium-paintbrush');
+    const largePaintbrush = document.querySelector('#large-paintbrush')
+    const paintroller = document.querySelector('#paintroller');
+
+    const smallPaintbrushCursor = document.querySelector('#small-paintbrush-cursor');
+    const mediumPaintbrushCursor = document.querySelector('#medium-paintbrush-cursor');
+    const largePaintbrushCursor = document.querySelector('#large-paintbrush-cursor')
+    const paintrollerCursor = document.querySelector('#paintroller-cursor');
+
     let mouseCursor = document.querySelector(".cursor");
 
     canvas.width = window.innerWidth - 100;
@@ -126,9 +136,16 @@ function clear_canvas() {
     document.querySelector('#yellow-color-field').addEventListener("click", () => { color = 'yellow'; mouseCursor.style.color = color})
 
     document.querySelector('#color-picker').addEventListener("input", (e) => { color = e.target.value; mouseCursor.style.color = color })
-    document.querySelector('#pen-range').addEventListener("input", (e) => width = e.target.value)
     
+    const switchCursorType = (paintbrushKey) => {
+      const paintbrushes = [smallPaintbrushCursor, mediumPaintbrushCursor, largePaintbrushCursor, paintrollerCursor];
+      paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushes[key].style.display = 'flex' : paintbrushes[key].style.display = 'none')
+    };
 
+    smallPaintbrush.addEventListener("click", (e) => { width = 2; switchCursorType(0) });
+    mediumPaintbrush.addEventListener("click", (e) => { width = 15; switchCursorType(1) });
+    largePaintbrush.addEventListener("click", (e) => { width = 40; switchCursorType(2) });
+    paintroller.addEventListener("click", (e) => { width = 70; switchCursorType(3) });
 
     window.addEventListener('mousemove', cursor);
   
@@ -153,6 +170,12 @@ link.click();
   return <div className="canvas-container">
    
     <ColorPanel/>
-    <div className="cursor"> <i className="fa fa-paint-brush"></i></div><canvas id="canvas"></canvas> </div> 
+    <div className="cursor">
+      <i id="small-paintbrush-cursor" className="fa fa-paint-brush"></i>
+      <i id="medium-paintbrush-cursor" className="fa fa-paint-brush"></i>
+      <i id="large-paintbrush-cursor"  className="fas fa-brush"></i>
+      <i  id="paintroller-cursor" className='fas fa-paint-roller'></i>
+    </div>
+    <canvas id="canvas"></canvas> </div> 
 }
 export default Canvas;

@@ -15,6 +15,17 @@ canvas {
   display: flex;
   justify-content: space-between;
 }
+.canvas-container #medium-paintbrush-cursor {
+  display: none;
+  font-size: 48px;
+}
+.canvas-container #large-paintbrush-cursor {
+  display: none;
+}
+
+.canvas-container #paintroller-cursor {
+  display: none;
+}
 .cursor {
   display: none;
   width: 3rem;
