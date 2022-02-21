@@ -17,10 +17,7 @@ function Tools() {
     <FontAwesomeIcon id="large-paintbrush" className="fa fa-paint-brush" icon={faBrush} />
     <FontAwesomeIcon id="paintroller" className="fa fa-paint-brush" icon={faPaintRoller} />
 
-    {/* <i id="small-paintbrush" className="fa fa-paint-brush"></i> */}
-    {/* <i id="medium-paintbrush" className="fa fa-paint-brush"></i>
-    <i id="large-paintbrush" className="fas fa-brush"></i>
-    <i id="paintroller" className='fas fa-paint-roller'></i> */}
+   
    
 </div>
 }

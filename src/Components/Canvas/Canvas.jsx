@@ -32,8 +32,7 @@ function Canvas() {
     canvas.height = 400;
 
     let context = canvas.getContext("2d");
-//     let start_background_color = "white"; 
-// context.fillStyle = start_background_color;
+
     context.fillRect(0, 0, canvas.width, canvas.height);
     
     const background = new Image();
@@ -99,7 +98,6 @@ function start(event) {
   }
 
 function clear_canvas() {
-  // context.fillStyle = start_background_color;
   const background = new Image();
   background.src = "https://images.unsplash.com/photo-1612538498613-35c5c8d675c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80";
   background.setAttribute('crossOrigin', '');
@@ -147,7 +145,6 @@ function clear_canvas() {
 
       paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushes[key].style.display = 'flex' : paintbrushes[key].style.display = 'none');
       paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushIcons[key].style = 'outline: 1px dotted white' : paintbrushIcons[key].style = 'outline: 0px dotted white');
-      // paintbrushes.map((index)=>console.log(index.style.outline))
 
     };
 
@@ -181,11 +178,7 @@ link.click();
    
     <ColorPanel/>
     <div className="cursor">
-      {/* <i id="small-paintbrush-cursor" className="fa fa-paint-brush"></i>
-      <i id="medium-paintbrush-cursor" className="fa fa-paint-brush"></i>
-      <i id="large-paintbrush-cursor"  className="fas fa-brush"></i>
-      <i id="paintroller-cursor" className='fas fa-paint-roller'></i> */}
-      
+
 
       <FontAwesomeIcon id="small-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
     <FontAwesomeIcon id="medium-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />

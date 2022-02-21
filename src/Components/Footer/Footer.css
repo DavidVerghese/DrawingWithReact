@@ -34,13 +34,7 @@ footer div {
   margin-right: 10px;
 }
 @media only screen and (max-width: 500px) {
-  footer  {
-     /* flex-direction: column; */
-    /*justify-content: flex-start; */
-  }
-  footer {
 
-  }
   footer div {
     justify-content: center;
   }
