@@ -22,7 +22,8 @@ button {
   border: 2px solid white;
   cursor: pointer;
   color: white;
-  background: #222;
+  /* background: #222; */
+  background-color: #937707;
   font-weight: bold;
   margin: 0px 8px;
 }

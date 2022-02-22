@@ -147,7 +147,7 @@ function clear_canvas() {
       const paintbrushIcons = [smallPaintbrush, mediumPaintbrush, largePaintbrush, paintroller];
 
       paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushes[key].style.display = 'flex' : paintbrushes[key].style.display = 'none');
-      paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushIcons[key].style = 'outline: 1px dotted white' : paintbrushIcons[key].style = 'outline: 0px dotted white');
+      paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushIcons[key].style = 'outline: 1px dotted black' : paintbrushIcons[key].style = 'outline: 0px dotted black');
 
     };
 
