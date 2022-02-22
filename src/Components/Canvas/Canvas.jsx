@@ -51,9 +51,6 @@ let draw_width = width;
 let index = -1;
 
 
-    // start DONE
-    // draw
-    // stopDrawing
 
     canvas.addEventListener("touchstart", (e) => { const touch = e.touches[0]; start(e,touch.pageX,touch.pageY) }, false);
     canvas.addEventListener("touchmove", (e) => { const touch = e.touches[0]; draw(e,touch.pageX,touch.pageY) }, { passive: false });
@@ -96,7 +93,7 @@ function start(event, x, y) {
       is_drawing = false;
     }
     event.preventDefault();
-    if (event.type === "mouseup") {
+    // if (event.type === "mouseup") {
       restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
       index += 1;
     }
