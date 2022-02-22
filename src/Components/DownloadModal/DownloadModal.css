@@ -3,7 +3,7 @@
   position: fixed; 
   z-index: 1;
   left: 40%;
-  top: 40%;
+  top: 20%;
 
   overflow: auto; 
   /* background-color: #044060; */
@@ -38,4 +38,12 @@
 .modal input, .modal select {
   height: 20px;
   margin: 0px 10px;
+}
+
+@media only screen and (max-width: 500px) {
+
+  .modal {
+    left: 10%;
+  top: 10%;
+  }
 }
