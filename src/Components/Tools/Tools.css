@@ -14,8 +14,8 @@
 .tools .fa-paint-roller {
   font-size: 50px;
 }
-.tools i {
-  padding: 10px;
+.tools #small-paintbrush, .tools #medium-paintbrush, .tools #large-paintbrush, .tools #paintroller {
+  padding: 5px;
 }
 .tools {
   display: flex;
