@@ -51,29 +51,35 @@ let draw_width = width;
 let index = -1;
 
 
-canvas.addEventListener("touchstart", start, false);
-    canvas.addEventListener("touchmove", draw, { passive: false });
+    // start DONE
+    // draw
+    // stopDrawing
+
+    canvas.addEventListener("touchstart", (e) => { const touch = e.touches[0]; start(e,touch.pageX,touch.pageY) }, false);
+    canvas.addEventListener("touchmove", (e) => { const touch = e.touches[0]; draw(e,touch.pageX,touch.pageY) }, { passive: false });
     canvas.addEventListener("mouseenter", () => mouseCursor.style.display = "flex",false)
-canvas.addEventListener("mousedown", start, false);
-    canvas.addEventListener("mousemove", draw, false);
+    canvas.addEventListener("mousedown", (e) => { start(e, e.clientX, e.clientY) }, false);
+    canvas.addEventListener("mousemove", (e) => { draw(e, e.clientX, e.clientY) }, false);
     canvas.addEventListener("touchend", stopDrawing, false);
 canvas.addEventListener("mouseup", stopDrawing, false);
     canvas.addEventListener("mouseout", stopDrawing, false);
     canvas.addEventListener("mouseout", () => mouseCursor.style.display = "none",false)
 
-function start(event) {
+function start(event, x, y) {
   is_drawing = true;
   context.beginPath();
-  context.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+    context.moveTo(x - canvas.offsetLeft, y - canvas.offsetTop);
   event.preventDefault(); 
 }
 
+
+
   
-    function draw(event) {
+    function draw(event, x, y) {
       draw_color = color;
       draw_width = width;
   if (is_drawing) {
-    context.lineTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop);
+    context.lineTo(x - canvas.offsetLeft, y - canvas.offsetTop);
     context.strokeStyle = draw_color;
     context.lineWidth = draw_width;
     context.lineCap = "round";
