@@ -96,7 +96,7 @@ function start(event, x, y) {
     // if (event.type === "mouseup") {
       restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
       index += 1;
-    }
+    // }
 
   }
 
