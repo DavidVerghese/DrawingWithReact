@@ -10,7 +10,7 @@ function Canvas() {
   useEffect(() => { 
 
 
-
+    // Dom Elements 
     const canvas = document.getElementById("canvas");
     const smallPaintbrush = document.querySelector('#small-paintbrush');
     const mediumPaintbrush = document.querySelector('#medium-paintbrush');
@@ -33,6 +33,7 @@ function Canvas() {
     const greenColorField =  document.querySelector('#green-color-field')
     const colorPicker = document.querySelector('#color-picker');
 
+    // other variables
     let width = "2";
     let color = 'gray';
     let title = 'untitled';
@@ -49,21 +50,13 @@ function Canvas() {
     let restore_array = [];
     let index = -1;
     mouseCursor.style.color = color;
-    
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    
-   
 
-// Make sure the image is loaded first otherwise nothing will draw.
+// functions
+context.fillRect(0, 0, canvas.width, canvas.height);
 background.onload = function(){
     context.drawImage(background,0,0);   
 }
 
-
-
-
-
-    
 
 function start(event, x, y) {
   is_drawing = true;
@@ -72,9 +65,6 @@ function start(event, x, y) {
   event.preventDefault(); 
 }
 
-
-
-  
     function draw(event, x, y) {
       draw_color = color;
       draw_width = width;
@@ -96,10 +86,8 @@ function start(event, x, y) {
       is_drawing = false;
     }
     event.preventDefault();
-    // if (event.type === "mouseup") {
       restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
       index += 1;
-    // }
 
   }
 
@@ -135,21 +123,19 @@ function clear_canvas() {
 
     };
 
-    
-  
   function cursor(e) {
     mouseCursor.style.top = e.pageY + 'px';
     mouseCursor.style.left = e.pageX + 'px';
   }
-    
-    
-    
+ 
     function download() {  
       var link = document.createElement('a');
       link.download = title;
       link.href = canvas.toDataURL(`image/${fileType}`)
       link.click();
     }
+
+    // event listeners 
 
     canvas.addEventListener("touchstart", (e) => { const touch = e.touches[0]; start(e,touch.pageX,touch.pageY) }, false);
     canvas.addEventListener("touchmove", (e) => { const touch = e.touches[0]; draw(e,touch.pageX,touch.pageY) }, { passive: false });
