@@ -3,7 +3,7 @@ import './Canvas.css';
 import ColorPanel from "../ColorPanel/ColorPanel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaintBrush, faPaintRoller, faBrush } from "@fortawesome/free-solid-svg-icons"
-
+import DownloadModal2 from "../DownloadModal2/DownloadModal2";
 function Canvas() {
 
   
@@ -25,14 +25,13 @@ function Canvas() {
     const undoButton = document.querySelector('#undo');
     const downloadModal = document.querySelector('#download-modal');
     const downloadTitle = document.querySelector('#download-title');
-    const fileTypeInput = document.querySelector('#file-type');
-    const startDownload = document.querySelector('#start-download');
+
     const redColorField = document.querySelector('#red-color-field');
     const blueColorField = document.querySelector('#blue-color-field');
     const yellowColorField = document.querySelector('#yellow-color-field');
     const greenColorField =  document.querySelector('#green-color-field')
     const colorPicker = document.querySelector('#color-picker');
-
+ 
     // other variables
 
     let width = "2";
@@ -137,10 +136,16 @@ function Canvas() {
     canvas.addEventListener("mouseout", () => mouseCursor.style.display = "none",false)   
     clearButton.addEventListener("click",clear_canvas)
     undoButton.addEventListener("click", undo_last);
+    const startDownload = document.querySelector('#start-download');
+    const fileTypeInput = document.querySelector('#file-type');    
+    
     if (downloadModal) {
+      
       downloadTitle.addEventListener("input", (e) => title = e.target.value);
       fileTypeInput.addEventListener('change', (e) => { fileType = e.target.value; })
-      startDownload.addEventListener("click", download);
+      console.log('here', startDownload, fileTypeInput, downloadTitle);
+
+       startDownload.addEventListener("click", download);
     }
     redColorField.addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
     blueColorField.addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
@@ -155,7 +160,8 @@ function Canvas() {
   })
 
   return <div className="canvas-container">
-   
+    
+    <DownloadModal2/>
     <ColorPanel/>
     <div className="cursor">
 
