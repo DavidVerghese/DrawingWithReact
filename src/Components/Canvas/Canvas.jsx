@@ -13,20 +13,28 @@ function Canvas() {
     let color = 'gray';
     let title = 'untitled';
     let fileType = 'png';
-    let currentCursor = 0;
 
     const canvas = document.getElementById("canvas");
     const smallPaintbrush = document.querySelector('#small-paintbrush');
     const mediumPaintbrush = document.querySelector('#medium-paintbrush');
     const largePaintbrush = document.querySelector('#large-paintbrush')
     const paintroller = document.querySelector('#paintroller');
-
     const smallPaintbrushCursor = document.querySelector('#small-paintbrush-cursor');
     const mediumPaintbrushCursor = document.querySelector('#medium-paintbrush-cursor');
     const largePaintbrushCursor = document.querySelector('#large-paintbrush-cursor')
     const paintrollerCursor = document.querySelector('#paintroller-cursor');
-
     let mouseCursor = document.querySelector(".cursor");
+    const clearButton = document.querySelector('#clear');
+    const undoButton = document.querySelector('#undo');
+    const downloadModal = document.querySelector('#download-modal');
+    const downloadTitle = document.querySelector('#download-title');
+    const fileTypeInput = document.querySelector('#file-type');
+    const startDownload = document.querySelector('#start-download');
+    const redColorField = document.querySelector('#red-color-field');
+    const blueColorField = document.querySelector('#blue-color-field');
+    const yellowColorField = document.querySelector('#yellow-color-field');
+    const greenColorField =  document.querySelector('#green-color-field')
+    const colorPicker = document.querySelector('#color-picker');
 
     canvas.width = window.innerWidth - 100;
     canvas.height = 400;
@@ -58,7 +66,7 @@ let index = -1;
     canvas.addEventListener("mousedown", (e) => { start(e, e.clientX, e.clientY) }, false);
     canvas.addEventListener("mousemove", (e) => { draw(e, e.clientX, e.clientY) }, false);
     canvas.addEventListener("touchend", stopDrawing, false);
-canvas.addEventListener("mouseup", stopDrawing, false);
+    canvas.addEventListener("mouseup", stopDrawing, false);
     canvas.addEventListener("mouseout", stopDrawing, false);
     canvas.addEventListener("mouseout", () => mouseCursor.style.display = "none",false)
 
@@ -124,23 +132,22 @@ function clear_canvas() {
   }
 }
 
-    document.querySelector('#clear').addEventListener("click",clear_canvas)
-    document.querySelector('#undo').addEventListener("click", undo_last);
+    clearButton.addEventListener("click",clear_canvas)
+    undoButton.addEventListener("click", undo_last);
   
 
-    if (document.querySelector('#download-modal')) {
-      document.querySelector('#download-title').addEventListener("input", (e) => title = e.target.value);
-      console.log(title);
-      document.querySelector('#file-type').addEventListener('change', (e) => { fileType = e.target.value; console.log(e.target.value)})
-      document.querySelector('#start-download').addEventListener("click", download);
+    if (downloadModal) {
+      downloadTitle.addEventListener("input", (e) => title = e.target.value);
+      fileTypeInput.addEventListener('change', (e) => { fileType = e.target.value; console.log(e.target.value)})
+      startDownload.addEventListener("click", download);
     }
     
-    document.querySelector('#red-color-field').addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
-    document.querySelector('#blue-color-field').addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
-    document.querySelector('#green-color-field').addEventListener("click", () => { color = 'green'; mouseCursor.style.color = color})
-    document.querySelector('#yellow-color-field').addEventListener("click", () => { color = 'yellow'; mouseCursor.style.color = color})
+    redColorField.addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
+    blueColorField.addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
+    greenColorField.addEventListener("click", () => { color = 'green'; mouseCursor.style.color = color})
+    yellowColorField.addEventListener("click", () => { color = 'yellow'; mouseCursor.style.color = color})
 
-    document.querySelector('#color-picker').addEventListener("input", (e) => { color = e.target.value; mouseCursor.style.color = color })
+    colorPicker.addEventListener("input", (e) => { color = e.target.value; mouseCursor.style.color = color })
     
     const switchCursorType = (paintbrushKey) => {
       const paintbrushes = [smallPaintbrushCursor, mediumPaintbrushCursor, largePaintbrushCursor, paintrollerCursor];
@@ -152,10 +159,10 @@ function clear_canvas() {
     };
 
 
-    smallPaintbrush.addEventListener("click", (e) => { width = 2; switchCursorType(0); currentCursor = 0 });
-    mediumPaintbrush.addEventListener("click", (e) => { width = 15; switchCursorType(1); currentCursor = 1 });
-    largePaintbrush.addEventListener("click", (e) => { width = 40; switchCursorType(2); currentCursor = 2 });
-    paintroller.addEventListener("click", (e) => { width = 70; switchCursorType(3); currentCursor = 3 });
+    smallPaintbrush.addEventListener("click", (e) => { width = 2; switchCursorType(0);  });
+    mediumPaintbrush.addEventListener("click", (e) => { width = 15; switchCursorType(1);  });
+    largePaintbrush.addEventListener("click", (e) => { width = 40; switchCursorType(2);  });
+    paintroller.addEventListener("click", (e) => { width = 70; switchCursorType(3);  });
 
     window.addEventListener('mousemove', cursor);
   
