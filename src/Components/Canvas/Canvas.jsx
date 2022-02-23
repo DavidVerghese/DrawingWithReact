@@ -114,7 +114,6 @@ function clear_canvas() {
 }
     
     function undo_last() {
-      console.log(index);
   if (index <= 0) {
     clear_canvas();
   } else {
@@ -162,7 +161,7 @@ function clear_canvas() {
     undoButton.addEventListener("click", undo_last);
     if (downloadModal) {
       downloadTitle.addEventListener("input", (e) => title = e.target.value);
-      fileTypeInput.addEventListener('change', (e) => { fileType = e.target.value; console.log(e.target.value)})
+      fileTypeInput.addEventListener('change', (e) => { fileType = e.target.value; })
       startDownload.addEventListener("click", download);
     }
     redColorField.addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
