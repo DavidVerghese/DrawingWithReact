@@ -9,10 +9,7 @@ function Canvas() {
   
   useEffect(() => { 
 
-    let width = "2";
-    let color = 'gray';
-    let title = 'untitled';
-    let fileType = 'png';
+
 
     const canvas = document.getElementById("canvas");
     const smallPaintbrush = document.querySelector('#small-paintbrush');
@@ -36,27 +33,33 @@ function Canvas() {
     const greenColorField =  document.querySelector('#green-color-field')
     const colorPicker = document.querySelector('#color-picker');
 
+    let width = "2";
+    let color = 'gray';
+    let title = 'untitled';
+    let fileType = 'png';
     canvas.width = window.innerWidth - 100;
     canvas.height = 400;
-
     let context = canvas.getContext("2d");
-
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    
     const background = new Image();
     background.src = require("../../Pictures/Canvas.jpeg");
     background.setAttribute('crossOrigin', '');
+    let draw_color = color;
+    let draw_width = width;
+    let is_drawing = false;
+    let restore_array = [];
+    let index = -1;
+    mouseCursor.style.color = color;
+    
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    
+   
 
 // Make sure the image is loaded first otherwise nothing will draw.
 background.onload = function(){
     context.drawImage(background,0,0);   
 }
 
-let draw_color = color;
-let draw_width = width;
-    let is_drawing = false;
-    let restore_array = [];
-let index = -1;
+
 
 
 
@@ -139,7 +142,7 @@ function clear_canvas() {
     mouseCursor.style.left = e.pageX + 'px';
   }
     
-    mouseCursor.style.color = color;
+    
     
     function download() {  
       var link = document.createElement('a');
