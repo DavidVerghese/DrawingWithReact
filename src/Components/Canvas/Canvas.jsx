@@ -60,15 +60,7 @@ let index = -1;
 
 
 
-    canvas.addEventListener("touchstart", (e) => { const touch = e.touches[0]; start(e,touch.pageX,touch.pageY) }, false);
-    canvas.addEventListener("touchmove", (e) => { const touch = e.touches[0]; draw(e,touch.pageX,touch.pageY) }, { passive: false });
-    canvas.addEventListener("mouseenter", () => mouseCursor.style.display = "flex",false)
-    canvas.addEventListener("mousedown", (e) => { start(e, e.clientX, e.clientY) }, false);
-    canvas.addEventListener("mousemove", (e) => { draw(e, e.clientX, e.clientY) }, false);
-    canvas.addEventListener("touchend", stopDrawing, false);
-    canvas.addEventListener("mouseup", stopDrawing, false);
-    canvas.addEventListener("mouseout", stopDrawing, false);
-    canvas.addEventListener("mouseout", () => mouseCursor.style.display = "none",false)
+    
 
 function start(event, x, y) {
   is_drawing = true;
@@ -131,23 +123,6 @@ function clear_canvas() {
     context.putImageData(restore_array[index],0,0)
   }
 }
-
-    clearButton.addEventListener("click",clear_canvas)
-    undoButton.addEventListener("click", undo_last);
-  
-
-    if (downloadModal) {
-      downloadTitle.addEventListener("input", (e) => title = e.target.value);
-      fileTypeInput.addEventListener('change', (e) => { fileType = e.target.value; console.log(e.target.value)})
-      startDownload.addEventListener("click", download);
-    }
-    
-    redColorField.addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
-    blueColorField.addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
-    greenColorField.addEventListener("click", () => { color = 'green'; mouseCursor.style.color = color})
-    yellowColorField.addEventListener("click", () => { color = 'yellow'; mouseCursor.style.color = color})
-
-    colorPicker.addEventListener("input", (e) => { color = e.target.value; mouseCursor.style.color = color })
     
     const switchCursorType = (paintbrushKey) => {
       const paintbrushes = [smallPaintbrushCursor, mediumPaintbrushCursor, largePaintbrushCursor, paintrollerCursor];
@@ -158,13 +133,7 @@ function clear_canvas() {
 
     };
 
-
-    smallPaintbrush.addEventListener("click", (e) => { width = 2; switchCursorType(0);  });
-    mediumPaintbrush.addEventListener("click", (e) => { width = 15; switchCursorType(1);  });
-    largePaintbrush.addEventListener("click", (e) => { width = 40; switchCursorType(2);  });
-    paintroller.addEventListener("click", (e) => { width = 70; switchCursorType(3);  });
-
-    window.addEventListener('mousemove', cursor);
+    
   
   function cursor(e) {
     mouseCursor.style.top = e.pageY + 'px';
@@ -173,14 +142,41 @@ function clear_canvas() {
     
     mouseCursor.style.color = color;
     
-    function download() {
-      
-var link = document.createElement('a');
-link.download = title;
-link.href = canvas.toDataURL(`image/${fileType}`)
-link.click();
-      
+    function download() {  
+      var link = document.createElement('a');
+      link.download = title;
+      link.href = canvas.toDataURL(`image/${fileType}`)
+      link.click();
     }
+
+    canvas.addEventListener("touchstart", (e) => { const touch = e.touches[0]; start(e,touch.pageX,touch.pageY) }, false);
+    canvas.addEventListener("touchmove", (e) => { const touch = e.touches[0]; draw(e,touch.pageX,touch.pageY) }, { passive: false });
+    canvas.addEventListener("mouseenter", () => mouseCursor.style.display = "flex",false)
+    canvas.addEventListener("mousedown", (e) => { start(e, e.clientX, e.clientY) }, false);
+    canvas.addEventListener("mousemove", (e) => { draw(e, e.clientX, e.clientY) }, false);
+    canvas.addEventListener("touchend", stopDrawing, false);
+    canvas.addEventListener("mouseup", stopDrawing, false);
+    canvas.addEventListener("mouseout", stopDrawing, false);
+    canvas.addEventListener("mouseout", () => mouseCursor.style.display = "none",false)   
+    clearButton.addEventListener("click",clear_canvas)
+    undoButton.addEventListener("click", undo_last);
+    if (downloadModal) {
+      downloadTitle.addEventListener("input", (e) => title = e.target.value);
+      fileTypeInput.addEventListener('change', (e) => { fileType = e.target.value; console.log(e.target.value)})
+      startDownload.addEventListener("click", download);
+    }
+    redColorField.addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
+    blueColorField.addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
+    greenColorField.addEventListener("click", () => { color = 'green'; mouseCursor.style.color = color})
+    yellowColorField.addEventListener("click", () => { color = 'yellow'; mouseCursor.style.color = color})
+    colorPicker.addEventListener("input", (e) => { color = e.target.value; mouseCursor.style.color = color })
+    smallPaintbrush.addEventListener("click", (e) => { width = 2; switchCursorType(0);  });
+    mediumPaintbrush.addEventListener("click", (e) => { width = 15; switchCursorType(1);  });
+    largePaintbrush.addEventListener("click", (e) => { width = 40; switchCursorType(2);  });
+    paintroller.addEventListener("click", (e) => { width = 70; switchCursorType(3); });
+    window.addEventListener('mousemove', cursor);
+
+
     
   })
 
