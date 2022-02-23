@@ -39,9 +39,6 @@ function Canvas() {
     let color = 'gray';
     let title = 'untitled';
     let fileType = 'png';
-    canvas.width = window.innerWidth - 100;
-    canvas.height = 400;
-    let context = canvas.getContext("2d");
     const background = new Image();
     let draw_color = color;
     let draw_width = width;
@@ -51,6 +48,9 @@ function Canvas() {
 
     // functions
 
+    canvas.width = window.innerWidth - 100;
+    canvas.height = 400;
+    let context = canvas.getContext("2d");
     context.fillRect(0, 0, canvas.width, canvas.height);
     background.src = require("../../Pictures/Canvas.jpeg");
     background.setAttribute('crossOrigin', '');
