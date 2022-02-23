@@ -9,8 +9,8 @@ function Canvas() {
   
   useEffect(() => { 
 
-
     // Dom Elements 
+
     const canvas = document.getElementById("canvas");
     const smallPaintbrush = document.querySelector('#small-paintbrush');
     const mediumPaintbrush = document.querySelector('#medium-paintbrush');
@@ -34,6 +34,7 @@ function Canvas() {
     const colorPicker = document.querySelector('#color-picker');
 
     // other variables
+
     let width = "2";
     let color = 'gray';
     let title = 'untitled';
@@ -42,92 +43,80 @@ function Canvas() {
     canvas.height = 400;
     let context = canvas.getContext("2d");
     const background = new Image();
-    background.src = require("../../Pictures/Canvas.jpeg");
-    background.setAttribute('crossOrigin', '');
     let draw_color = color;
     let draw_width = width;
     let is_drawing = false;
     let restore_array = [];
     let index = -1;
+
+    // functions
+
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    background.src = require("../../Pictures/Canvas.jpeg");
+    background.setAttribute('crossOrigin', '');
     mouseCursor.style.color = color;
-
-// functions
-context.fillRect(0, 0, canvas.width, canvas.height);
-background.onload = function(){
-    context.drawImage(background,0,0);   
-}
-
-
-function start(event, x, y) {
-  is_drawing = true;
-  context.beginPath();
-    context.moveTo(x - canvas.offsetLeft, y - canvas.offsetTop);
-  event.preventDefault(); 
-}
-
+    background.onload = function () {
+      context.drawImage(background, 0, 0);
+    }
+    function start(event, x, y) {
+      is_drawing = true;
+      context.beginPath();
+      context.moveTo(x - canvas.offsetLeft, y - canvas.offsetTop);
+      event.preventDefault(); 
+    }
     function draw(event, x, y) {
       draw_color = color;
       draw_width = width;
-  if (is_drawing) {
-    context.lineTo(x - canvas.offsetLeft, y - canvas.offsetTop);
-    context.strokeStyle = draw_color;
-    context.lineWidth = draw_width;
-    context.lineCap = "round";
-    context.lineJoin = "round";
-    context.stroke();
-  }
+      if (is_drawing) {
+        context.lineTo(x - canvas.offsetLeft, y - canvas.offsetTop);
+        context.strokeStyle = draw_color;
+        context.lineWidth = draw_width;
+        context.lineCap = "round";
+        context.lineJoin = "round";
+        context.stroke();
+      }
     };
-
     function stopDrawing(event) {
-      
-    if (is_drawing) {
-      context.stroke();
-      context.closePath();
-      is_drawing = false;
-    }
-    event.preventDefault();
+      if (is_drawing) {
+        context.stroke();
+        context.closePath();
+        is_drawing = false;
+      }
+      event.preventDefault();
       restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
       index += 1;
-
-  }
-
-function clear_canvas() {
-  const background = new Image();
-  background.src = "https://images.unsplash.com/photo-1612538498613-35c5c8d675c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80";
-  background.setAttribute('crossOrigin', '');
-  background.onload = function(){
-    context.drawImage(background,0,0);   
-}
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  restore_array = [];
-  index = -1;
-}
-    
+    }
+    function clear_canvas() {
+      const background = new Image();
+      background.src = "https://images.unsplash.com/photo-1612538498613-35c5c8d675c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80";
+      background.setAttribute('crossOrigin', '');
+      background.onload = function(){
+        context.drawImage(background,0,0);   
+    }
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      restore_array = [];
+      index = -1;
+    }
     function undo_last() {
-  if (index <= 0) {
-    clear_canvas();
-  } else {
-    index -= 1;
-    restore_array.pop();
-    context.putImageData(restore_array[index],0,0)
-  }
-}
-    
+      if (index <= 0) {
+        clear_canvas();
+      } else {
+        index -= 1;
+        restore_array.pop();
+        context.putImageData(restore_array[index],0,0)
+      }
+    }
     const switchCursorType = (paintbrushKey) => {
       const paintbrushes = [smallPaintbrushCursor, mediumPaintbrushCursor, largePaintbrushCursor, paintrollerCursor];
       const paintbrushIcons = [smallPaintbrush, mediumPaintbrush, largePaintbrush, paintroller];
-
       paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushes[key].style.display = 'flex' : paintbrushes[key].style.display = 'none');
       paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushIcons[key].style = 'outline: 1px dotted black' : paintbrushIcons[key].style = 'outline: 0px dotted black');
-
     };
-
-  function cursor(e) {
-    mouseCursor.style.top = e.pageY + 'px';
-    mouseCursor.style.left = e.pageX + 'px';
-  }
- 
+    function cursor(e) {
+     mouseCursor.style.top = e.pageY + 'px';
+     mouseCursor.style.left = e.pageX + 'px';
+    }
     function download() {  
       var link = document.createElement('a');
       link.download = title;
@@ -135,8 +124,8 @@ function clear_canvas() {
       link.click();
     }
 
-    // event listeners 
-
+    // event listeners
+    
     canvas.addEventListener("touchstart", (e) => { const touch = e.touches[0]; start(e,touch.pageX,touch.pageY) }, false);
     canvas.addEventListener("touchmove", (e) => { const touch = e.touches[0]; draw(e,touch.pageX,touch.pageY) }, { passive: false });
     canvas.addEventListener("mouseenter", () => mouseCursor.style.display = "flex",false)
@@ -162,10 +151,7 @@ function clear_canvas() {
     mediumPaintbrush.addEventListener("click", (e) => { width = 15; switchCursorType(1);  });
     largePaintbrush.addEventListener("click", (e) => { width = 40; switchCursorType(2);  });
     paintroller.addEventListener("click", (e) => { width = 70; switchCursorType(3); });
-    window.addEventListener('mousemove', cursor);
-
-
-    
+    window.addEventListener('mousemove', cursor); 
   })
 
   return <div className="canvas-container">
