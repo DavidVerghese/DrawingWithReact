@@ -50,6 +50,30 @@
   margin: 0px;
 }
 
+.pick-color-outside {
+  height: 50px;
+  width: 50px;
+  min-height: 50px;
+  min-width: 50px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #f1ca2c;
+  box-shadow: 1px 1px 1px 1px #033652;
+}
+
+.pick-color {
+  height: 30px;
+  width: 30px;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  background-color: red; 
+}
+
+
+
 
 
 .modal {
