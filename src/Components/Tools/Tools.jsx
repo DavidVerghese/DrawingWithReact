@@ -1,6 +1,7 @@
 import './Tools.css';
 import DownloadModal from '../DownloadModal/DownloadModal';
 import ColorModal from '../ColorModal/ColorModal';
+import CustomColor from '../CustomColor/CustomColor';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaintBrush, faPaintRoller, faBrush  } from "@fortawesome/free-solid-svg-icons"
 function Tools() {
@@ -20,7 +21,8 @@ function Tools() {
       <div className="pick-color"></div>
     </div>
    
-    <ColorModal/>
+    <ColorModal />
+    <CustomColor/>
    
 </div>
 }

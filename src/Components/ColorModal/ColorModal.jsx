@@ -13,7 +13,7 @@ function ColorModal() {
     const btn = document.querySelector(".pick-color-outside");
     const innerCircle = document.querySelector(".pick-color-outside .pick-color");
     const close = document.querySelector("#color-modal #close")
-    
+    const customColor = document.querySelector("#custom-color-button")
     btn.onclick = function () {
    
       modal.style.display = "flex";
@@ -24,10 +24,14 @@ function ColorModal() {
     };
 
     window.onclick = function (event) {
-      if (modalIsOpen && event.target !== modal && event.target !== btn && event.target !== innerCircle) {
+      if (modalIsOpen &&  event.target !== modal && event.target !== btn && event.target !== innerCircle) {
         modal.style.display = "none";
         setModalIsOpen(false);
       }
+      // if (event.target === customColor) {
+      //   modal.style.display = "none";
+      //   setModalIsOpen(false);
+      // }
     }
 
   })
