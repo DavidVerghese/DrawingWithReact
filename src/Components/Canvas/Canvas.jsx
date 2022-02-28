@@ -160,10 +160,10 @@ function Canvas() {
     <div className="cursor">
 
 
-      <FontAwesomeIcon id="small-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
-    <FontAwesomeIcon id="medium-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
-    <FontAwesomeIcon id="large-paintbrush-cursor" className="fa fa-paint-brush" icon={faBrush} />
-      <FontAwesomeIcon id="paintroller-cursor" className="fa fa-paint-brush" icon={faPaintRoller} />
+       <FontAwesomeIcon id="small-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
+      <FontAwesomeIcon id="medium-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
+     <FontAwesomeIcon id="large-paintbrush-cursor" className="fa fa-paint-brush" icon={faBrush} />
+       <FontAwesomeIcon id="paintroller-cursor" className="fa fa-paint-brush" icon={faPaintRoller} />
       
     </div>
     <canvas id="canvas"></canvas> </div> 
