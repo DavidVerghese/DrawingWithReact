@@ -17,12 +17,12 @@ function Tools() {
   <FontAwesomeIcon id="medium-paintbrush" className="fa fa-paint-brush" icon={faPaintBrush} />
     <FontAwesomeIcon id="large-paintbrush" className="fa fa-paint-brush" icon={faBrush} />
     <FontAwesomeIcon id="paintroller" className="fa fa-paint-brush" icon={faPaintRoller} />
-    <div className="pick-color-outside">
+    {/* <div className="pick-color-outside">
       <div className="pick-color"></div>
-    </div>
-   
-    <ColorModal />
-    <CustomColor/>
+    </div> */}
+ 
+    {/* <ColorModal /> 
+    <CustomColor/> */}
    
 </div>
 }
