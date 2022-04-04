@@ -19,7 +19,9 @@
   flex-direction: column;
   justify-content: space-around;
   margin: 10px 10px;
-  background-color: #d2aa09;
+  /* background-color: #d2aa09; */
+  background-color: black;
+  color: white;
   box-shadow: -3px 2px 9px 6px #033652;
   width: 70px;
   height: 100%;
