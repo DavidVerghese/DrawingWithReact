@@ -34,6 +34,10 @@ function Canvas() {
     const colorPicker = document.querySelector('#color-picker');
 
     // other variables
+   // let canvasWidth = window.innerWidth  > 1000 ? window.innerWidth * 0.9 : window.innerWidth> 600 ? window.innerWidth * 0.8 : window.innerWidth > 300 ? window.innerWidth * 0.6 : window.innerWidth * 0.1;
+    let canvasWidth = window.innerWidth * 0.9
+    let canvasHeight = window.innerHeight * 0.6
+    //let windowHeight = window.innerHeight  > 600 ? window.innerHeight * 0.6 : window.innerHeight * 0.4 ;
 
     let width = "2";
     let color = 'gray';
@@ -48,8 +52,8 @@ function Canvas() {
 
     // functions
 
-    canvas.width = window.innerWidth - 100;
-    canvas.height = 400;
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
     let context = canvas.getContext("2d");
     context.fillRect(0, 0, canvas.width, canvas.height);
     background.src = require("../../Pictures/Canvas.jpeg");
@@ -65,6 +69,7 @@ function Canvas() {
       event.preventDefault(); 
     }
     function draw(event, x, y) {
+      console.log(canvas.offsetLeft)
       draw_color = color;
       draw_width = width;
       if (is_drawing) {
