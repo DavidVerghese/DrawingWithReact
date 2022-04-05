@@ -34,10 +34,29 @@ function Canvas() {
     const colorPicker = document.querySelector('#color-picker');
 
     // other variables
-   // let canvasWidth = window.innerWidth  > 1000 ? window.innerWidth * 0.9 : window.innerWidth> 600 ? window.innerWidth * 0.8 : window.innerWidth > 300 ? window.innerWidth * 0.6 : window.innerWidth * 0.1;
-    let canvasWidth = window.innerWidth * 0.9
-    let canvasHeight = window.innerHeight * 0.6
-    //let windowHeight = window.innerHeight  > 600 ? window.innerHeight * 0.6 : window.innerHeight * 0.4 ;
+    function determineCanvasWidth(width) {
+      if (width > 1000) {
+        return 0.9
+      }
+      else if (width > 800) {
+        return 0.85
+      }
+      else if (width > 500) {
+        return 0.77
+      }
+      else if (width > 400) {
+        return 0.75
+      }
+      else if (width > 300) {
+        return 0.7
+      }
+      else {
+        return 0.6;
+      }
+    }
+    let canvasWidth = window.outerWidth * determineCanvasWidth(window.outerWidth);
+    let canvasHeight = window.outerHeight * 0.6;
+    
 
     let width = "2";
     let color = 'gray';
