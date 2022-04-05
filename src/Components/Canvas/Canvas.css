@@ -3,8 +3,9 @@ canvas {
   cursor: pointer;
   background-image: url("../../Pictures/Frame.jpeg");
   padding: 5px;
-  margin-top: 20px;
-  /* min-width: 70%; */
+  /* margin-top: 20px; */
+  /* width: 90%; */
+  height: 400px;
   margin-left: 80px;
 }
 
@@ -15,7 +16,7 @@ canvas {
 .canvas-container {
   display: flex;
   justify-content: flex-start;
-  width: 100%; 
+  width: 100vw; 
 }
 .canvas-container #medium-paintbrush-cursor {
   display: none;
@@ -39,3 +40,10 @@ canvas {
  transform: translate(-40%, -60%);
  pointer-events: none;
 }
+
+/* @media only screen and (max-width: 500px){
+  canvas {
+    width: 180px;
+  }
+  
+} */
