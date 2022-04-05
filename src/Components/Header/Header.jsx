@@ -10,12 +10,12 @@ function Header(props) {
   return <header>
    
     {studio ? <>
-      <div className="logo"><Link to="/"><h2>{`< Canvas`} <FontAwesomeIcon icon={faPaintBrush} /></h2></Link></div>
+      <div className="logo"><Link to="/"><h2>{`< Draw The Line`} <FontAwesomeIcon icon={faPaintBrush} /></h2></Link></div>
       <FontAwesomeIcon id="undo" icon={faUndo} />
       <FontAwesomeIcon id="clear" icon={faTrash} />
       <FontAwesomeIcon id="download" icon={faSave} />
       
-    </> :  <div className="logo"><h2> Canvas   <FontAwesomeIcon icon={faPaintBrush} /></h2></div>}
+    </> :  <div className="logo"><h2> Draw The Line  <FontAwesomeIcon icon={faPaintBrush} /></h2></div>}
   </header>
 }
 export default Header;
