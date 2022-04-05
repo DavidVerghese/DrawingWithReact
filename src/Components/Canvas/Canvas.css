@@ -4,7 +4,8 @@ canvas {
   background-image: url("../../Pictures/Frame.jpeg");
   padding: 5px;
   margin-top: 20px;
-  width: 100%;
+  /* min-width: 70%; */
+  margin-left: 80px;
 }
 
 .fa-paint-brush {
@@ -13,7 +14,8 @@ canvas {
 
 .canvas-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  width: 100%; 
 }
 .canvas-container #medium-paintbrush-cursor {
   display: none;
