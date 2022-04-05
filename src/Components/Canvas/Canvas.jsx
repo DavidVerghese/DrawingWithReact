@@ -67,6 +67,7 @@ function Canvas() {
     function draw(event, x, y) {
       draw_color = color;
       draw_width = width;
+      console.log( canvas.offsetLeft);
       if (is_drawing) {
         context.lineTo(x - canvas.offsetLeft, y - canvas.offsetTop);
         context.strokeStyle = draw_color;
