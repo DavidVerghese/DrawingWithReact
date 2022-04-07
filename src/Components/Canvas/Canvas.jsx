@@ -112,7 +112,6 @@ function Canvas() {
       background.onload = function(){
         context.drawImage(background,0,0);   
       }
-      
       context.clearRect(0, 0, canvas.width, canvas.height);
       context.fillRect(0, 0, canvas.width, canvas.height);
       restore_array = [];
@@ -148,11 +147,17 @@ function Canvas() {
       link.click();
     }
 
-    canvas.addEventListener("touchstart", (e) => { const touch = e.touches[0]; start(e,touch.pageX,touch.pageY) }, false);
-    canvas.addEventListener("touchmove", (e) => { const touch = e.touches[0]; draw(e, touch.pageX, touch.pageY) }, { passive: false });
+    canvas.addEventListener("touchstart", (e) => {
+      const touch = e.touches[0];
+      start(e, touch.pageX, touch.pageY)
+    }, false);
+    canvas.addEventListener("touchmove", (e) => {
+      const touch = e.touches[0];
+      draw(e, touch.pageX, touch.pageY);
+    }, { passive: false });
     canvas.addEventListener("mouseenter", () => mouseCursor.style.display = "flex", false);
-    canvas.addEventListener("mousedown", (e) => { start(e, e.clientX, e.clientY) }, false);
-    canvas.addEventListener("mousemove", (e) => { draw(e, e.clientX, e.clientY) }, false);
+    canvas.addEventListener("mousedown", (e) => start(e, e.clientX, e.clientY), false);
+    canvas.addEventListener("mousemove", (e) => draw(e, e.clientX, e.clientY), false);
     canvas.addEventListener("touchend", stopDrawing, false);
     canvas.addEventListener("mouseup", stopDrawing, false);
     canvas.addEventListener("mouseout", stopDrawing, false);
@@ -162,19 +167,46 @@ function Canvas() {
     
     if (downloadModal) {
       downloadTitle.addEventListener("input", (e) => title = e.target.value);
-      fileTypeInput.addEventListener('change', (e) => { fileType = e.target.value; })
+      fileTypeInput.addEventListener('change', (e) => fileType = e.target.value)
       startDownload.addEventListener("click", download);
     };
 
-    redColorField.addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
-    blueColorField.addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
-    greenColorField.addEventListener("click", () => { color = 'green'; mouseCursor.style.color = color})
-    yellowColorField.addEventListener("click", () => { color = 'yellow'; mouseCursor.style.color = color})
-    colorPicker.addEventListener("input", (e) => { color = e.target.value; mouseCursor.style.color = color })
-    smallPaintbrush.addEventListener("click", (e) => { width = 2; switchCursorType(0);  });
-    mediumPaintbrush.addEventListener("click", (e) => { width = 15; switchCursorType(1);  });
-    largePaintbrush.addEventListener("click", (e) => { width = 40; switchCursorType(2);  });
-    paintroller.addEventListener("click", (e) => { width = 70; switchCursorType(3); });
+    redColorField.addEventListener("click", () => {
+      color = 'red';
+      mouseCursor.style.color = color;
+    })
+    blueColorField.addEventListener("click", () => {
+      color = 'blue';
+      mouseCursor.style.color = color;
+    })
+    greenColorField.addEventListener("click", () => {
+      color = 'green';
+      mouseCursor.style.color = color;
+    })
+    yellowColorField.addEventListener("click", () => {
+      color = 'yellow';
+      mouseCursor.style.color = color;
+    })
+    colorPicker.addEventListener("input", (e) => {
+      color = e.target.value;
+      mouseCursor.style.color = color;
+    })
+    smallPaintbrush.addEventListener("click", (e) => {
+      width = 2;
+      switchCursorType(0);
+    });
+    mediumPaintbrush.addEventListener("click", (e) => {
+      width = 15;
+      switchCursorType(1);
+    });
+    largePaintbrush.addEventListener("click", (e) => {
+      width = 40;
+      switchCursorType(2);
+    });
+    paintroller.addEventListener("click", (e) => {
+      width = 70;
+      switchCursorType(3);
+    });
     window.addEventListener('mousemove', cursor); 
   })
 
