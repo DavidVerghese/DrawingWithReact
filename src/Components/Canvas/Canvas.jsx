@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import './Canvas.css';
 import ColorPanel from "../ColorPanel/ColorPanel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
