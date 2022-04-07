@@ -38,7 +38,7 @@ canvas {
   height: 3rem;
   border-radius: 50%;
   position: absolute;
- transform: translate(-40%, -60%);
- pointer-events: none;
+  transform: translate(-40%, -60%);
+  pointer-events: none;
 }
 
