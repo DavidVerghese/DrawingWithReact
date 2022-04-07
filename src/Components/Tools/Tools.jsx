@@ -1,6 +1,5 @@
 import './Tools.css';
 import DownloadModal from '../DownloadModal/DownloadModal';
-import CustomColor from '../CustomColor/CustomColor';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPaintBrush, faPaintRoller, faBrush  } from "@fortawesome/free-solid-svg-icons"
 function Tools() {
