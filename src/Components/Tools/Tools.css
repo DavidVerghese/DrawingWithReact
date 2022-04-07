@@ -1,22 +1,28 @@
 .tools .fa-paint-brush {
   font-size: 20px;
 }
+
 .tools #small-paintbrush {
   outline: 1px dotted black;
 }
+
 .tools #medium-paintbrush {
   font-size: 25px;
   padding: 10px;
 }
+
 .tools .fa-brush {
   font-size: 30px;
 }
+
 .tools .fa-paint-roller {
   font-size: 50px;
 }
+
 .tools #small-paintbrush, .tools #medium-paintbrush, .tools #large-paintbrush, .tools #paintroller {
   padding: 5px;
 }
+
 .tools {
   display: flex;
   justify-content: space-around;
@@ -32,9 +38,7 @@
   bottom: 0;
 }
 
-
-
- .tools .width {
+.tools .width {
   display: flex;
   justify-content: space-around;
   margin: 10px 10px;
