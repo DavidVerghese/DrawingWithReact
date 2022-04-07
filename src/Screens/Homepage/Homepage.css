@@ -6,10 +6,12 @@
   position: relative;
   height: 100vh;
 }
+
 .homepage img {
   min-width: 50%;
   margin: 10px;
 }
+
 .homepage button {
   background-color: #007849;
 }
