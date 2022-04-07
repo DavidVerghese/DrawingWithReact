@@ -6,11 +6,7 @@ import { faPaintBrush, faPaintRoller, faBrush } from "@fortawesome/free-solid-sv
 
 function Canvas() {
 
-  
   useEffect(() => { 
-
-    // Dom Elements 
-
     const canvas = document.getElementById("canvas");
     const smallPaintbrush = document.querySelector('#small-paintbrush');
     const mediumPaintbrush = document.querySelector('#medium-paintbrush');
@@ -32,8 +28,7 @@ function Canvas() {
     const yellowColorField = document.querySelector('#yellow-color-field');
     const greenColorField =  document.querySelector('#green-color-field')
     const colorPicker = document.querySelector('#color-picker');
-
-    // other variables
+    
     function determineCanvasWidth(width) {
       if (width > 1000) {
         return 0.9
@@ -54,10 +49,9 @@ function Canvas() {
         return 0.6;
       }
     }
+
     let canvasWidth = window.outerWidth * determineCanvasWidth(window.outerWidth);
     let canvasHeight = window.outerHeight * 0.6;
-    
-
     let width = "2";
     let color = 'gray';
     let title = 'untitled';
@@ -68,9 +62,6 @@ function Canvas() {
     let is_drawing = false;
     let restore_array = [];
     let index = -1;
-
-    // functions
-
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
     let context = canvas.getContext("2d");
@@ -78,15 +69,18 @@ function Canvas() {
     background.src = require("../../Pictures/Canvas.jpeg");
     background.setAttribute('crossOrigin', '');
     mouseCursor.style.color = color;
+
     background.onload = function () {
       context.drawImage(background, 0, 0);
     }
+
     function start(event, x, y) {
       is_drawing = true;
       context.beginPath();
       context.moveTo(x - canvas.offsetLeft, y - canvas.offsetTop);
       event.preventDefault(); 
     }
+
     function draw(event, x, y) {
       draw_color = color;
       draw_width = width;
@@ -99,6 +93,7 @@ function Canvas() {
         context.stroke();
       }
     };
+
     function stopDrawing(event) {
       if (is_drawing) {
         context.stroke();
@@ -109,18 +104,21 @@ function Canvas() {
       restore_array.push(context.getImageData(0, 0, canvas.width, canvas.height));
       index += 1;
     }
+
     function clear_canvas() {
       const background = new Image();
       background.src = "https://images.unsplash.com/photo-1612538498613-35c5c8d675c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80";
       background.setAttribute('crossOrigin', '');
       background.onload = function(){
         context.drawImage(background,0,0);   
-    }
+      }
+      
       context.clearRect(0, 0, canvas.width, canvas.height);
       context.fillRect(0, 0, canvas.width, canvas.height);
       restore_array = [];
       index = -1;
     }
+
     function undo_last() {
       if (index <= 0) {
         clear_canvas();
@@ -130,16 +128,19 @@ function Canvas() {
         context.putImageData(restore_array[index],0,0)
       }
     }
+
     const switchCursorType = (paintbrushKey) => {
       const paintbrushes = [smallPaintbrushCursor, mediumPaintbrushCursor, largePaintbrushCursor, paintrollerCursor];
       const paintbrushIcons = [smallPaintbrush, mediumPaintbrush, largePaintbrush, paintroller];
       paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushes[key].style.display = 'flex' : paintbrushes[key].style.display = 'none');
       paintbrushes.map((index, key) => key === paintbrushKey ? paintbrushIcons[key].style = 'outline: 1px dotted black' : paintbrushIcons[key].style = 'outline: 0px dotted black');
     };
+
     function cursor(e) {
      mouseCursor.style.top = e.pageY + 'px';
      mouseCursor.style.left = e.pageX + 'px';
     }
+
     function download() {  
       var link = document.createElement('a');
       link.download = title;
@@ -147,24 +148,24 @@ function Canvas() {
       link.click();
     }
 
-    // event listeners
-    
     canvas.addEventListener("touchstart", (e) => { const touch = e.touches[0]; start(e,touch.pageX,touch.pageY) }, false);
-    canvas.addEventListener("touchmove", (e) => { const touch = e.touches[0]; draw(e,touch.pageX,touch.pageY) }, { passive: false });
-    canvas.addEventListener("mouseenter", () => mouseCursor.style.display = "flex",false)
+    canvas.addEventListener("touchmove", (e) => { const touch = e.touches[0]; draw(e, touch.pageX, touch.pageY) }, { passive: false });
+    canvas.addEventListener("mouseenter", () => mouseCursor.style.display = "flex", false);
     canvas.addEventListener("mousedown", (e) => { start(e, e.clientX, e.clientY) }, false);
     canvas.addEventListener("mousemove", (e) => { draw(e, e.clientX, e.clientY) }, false);
     canvas.addEventListener("touchend", stopDrawing, false);
     canvas.addEventListener("mouseup", stopDrawing, false);
     canvas.addEventListener("mouseout", stopDrawing, false);
-    canvas.addEventListener("mouseout", () => mouseCursor.style.display = "none",false)   
-    clearButton.addEventListener("click",clear_canvas)
+    canvas.addEventListener("mouseout", () => mouseCursor.style.display = "none", false);
+    clearButton.addEventListener("click", clear_canvas);
     undoButton.addEventListener("click", undo_last);
+    
     if (downloadModal) {
       downloadTitle.addEventListener("input", (e) => title = e.target.value);
       fileTypeInput.addEventListener('change', (e) => { fileType = e.target.value; })
       startDownload.addEventListener("click", download);
-    }
+    };
+
     redColorField.addEventListener("click", () => { color = 'red'; mouseCursor.style.color = color})
     blueColorField.addEventListener("click", () => { color = 'blue'; mouseCursor.style.color = color})
     greenColorField.addEventListener("click", () => { color = 'green'; mouseCursor.style.color = color})
@@ -177,18 +178,16 @@ function Canvas() {
     window.addEventListener('mousemove', cursor); 
   })
 
-  return <div className="canvas-container">
-   
-    <ColorPanel/>
-    <div className="cursor">
-
-
-       <FontAwesomeIcon id="small-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
-      <FontAwesomeIcon id="medium-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
-     <FontAwesomeIcon id="large-paintbrush-cursor" className="fa fa-paint-brush" icon={faBrush} />
-       <FontAwesomeIcon id="paintroller-cursor" className="fa fa-paint-brush" icon={faPaintRoller} />
-      
-    </div>
-    <canvas id="canvas"></canvas> </div> 
+  return (
+    <div className="canvas-container">
+      <ColorPanel />
+      <div className="cursor">
+        <FontAwesomeIcon id="small-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
+        <FontAwesomeIcon id="medium-paintbrush-cursor" className="fa fa-paint-brush" icon={faPaintBrush} />
+        <FontAwesomeIcon id="large-paintbrush-cursor" className="fa fa-paint-brush" icon={faBrush} />
+        <FontAwesomeIcon id="paintroller-cursor" className="fa fa-paint-brush" icon={faPaintRoller} />
+      </div>
+      <canvas id="canvas"></canvas>
+    </div>) 
 }
 export default Canvas;
