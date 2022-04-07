@@ -4,15 +4,12 @@
   z-index: 1;
   left: 40%;
   top: 20%;
-
   overflow: auto; 
   background-color: #a2830a;
   color: black;
-
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
   padding: 10px;
 }
 
@@ -39,9 +36,8 @@
 }
 
 @media only screen and (max-width: 500px) {
-
   .modal {
     left: 10%;
-  top: 10%;
+    top: 10%;
   }
 }

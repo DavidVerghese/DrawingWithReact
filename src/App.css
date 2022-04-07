@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap');
 
-
 body {
   margin: 0px;
   overflow: hidden;
@@ -13,7 +12,6 @@ body {
 a {
   color: black;
 }
-
 
 button {
   align-self: center;
@@ -30,6 +28,7 @@ button {
 h1, h2 {
   font-family: 'Oleo Script', cursive;
 }
+
 .app {
   display: flex;
   flex-direction: column;

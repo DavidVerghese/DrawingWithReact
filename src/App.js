@@ -4,13 +4,14 @@ import Homepage from './Screens/Homepage/Homepage';
 import { Route } from "react-router-dom";
 function App() {
 
-  return (<div className="app">
-    <Route exact path="/">
-      <Homepage/>
-    </Route>
-    <Route exact path="/canvas">
-      <Studio/>
-    </Route>
+  return (
+    <div className="app">
+      <Route exact path="/">
+        <Homepage/>
+      </Route>
+      <Route exact path="/canvas">
+        <Studio/>
+      </Route>
     </div>
   );
 }

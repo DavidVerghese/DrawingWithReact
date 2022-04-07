@@ -16,10 +16,12 @@ canvas {
   justify-content: flex-start;
   width: 100%; 
 }
+
 .canvas-container #medium-paintbrush-cursor {
   display: none;
   font-size: 48px;
 }
+
 .canvas-container #large-paintbrush-cursor {
   display: none;
   font-size: 58px;
@@ -29,12 +31,14 @@ canvas {
   display: none;
   font-size: 68px;
 }
+
 .cursor {
   display: none;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
   position: absolute;
- transform: translate(-40%, -60%);
- pointer-events: none;
+  transform: translate(-40%, -60%);
+  pointer-events: none;
 }
+
