@@ -88,7 +88,6 @@ function Canvas() {
       event.preventDefault(); 
     }
     function draw(event, x, y) {
-      console.log(canvas.offsetLeft)
       draw_color = color;
       draw_width = width;
       if (is_drawing) {
