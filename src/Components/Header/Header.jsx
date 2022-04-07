@@ -6,7 +6,6 @@ import { faPaintBrush,faUndo, faTrash, faSave } from "@fortawesome/free-solid-sv
 
 function Header(props) {
   const { studio } = props;
-  console.log(studio);
   return <header>
    
     {studio ? <>
