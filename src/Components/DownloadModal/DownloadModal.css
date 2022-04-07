@@ -6,9 +6,7 @@
   top: 20%;
 
   overflow: auto; 
-  /* background-color: #044060; */
   background-color: #a2830a;
-  /* color: #a0ebf9f9; */
   color: black;
 
   flex-direction: column;

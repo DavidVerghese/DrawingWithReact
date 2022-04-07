@@ -26,10 +26,8 @@
   flex-wrap: wrap;
   width: 100vw;
   background-color: black;
-  /* background-color: #d2aa09; */
   box-shadow: -3px 2px 9px 6px #033652;
   color: white;
-  /* padding: 10px; */
   position: absolute;
   bottom: 0;
 }
