@@ -11,8 +11,8 @@ function Homepage() {
       <Link to="/canvas">
         <button>Enter the studio</button>
       </Link>
-      <img alt="painting" src="https://media1.giphy.com/media/kfip29oFQf9mjhJVa0/200.gif" />
-      <Footer/>
+      <img id="painting-gif" alt="painting" src="https://media1.giphy.com/media/kfip29oFQf9mjhJVa0/200.gif" />
+      {/* <Footer/> */}
     </div>)
 }
 export default Homepage;

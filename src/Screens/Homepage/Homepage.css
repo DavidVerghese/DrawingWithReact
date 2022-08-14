@@ -6,6 +6,9 @@
   position: relative;
   height: 100vh;
 }
+#painting-gif {
+  border: 10px dotted red;
+}
 
 .homepage img {
   min-width: 50%;
@@ -13,5 +16,5 @@
 }
 
 .homepage button {
-  background-color: #007849;
+  /* background-color: #007849; */
 }

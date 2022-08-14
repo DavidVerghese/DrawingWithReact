@@ -5,6 +5,7 @@ canvas {
   padding: 5px;
   margin-top: 20px;
   margin-left: 80px;
+  border: 10px dotted red;
 }
 
 .fa-paint-brush {

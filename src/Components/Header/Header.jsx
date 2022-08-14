@@ -12,9 +12,9 @@ function Header(props) {
         <>
           <div className="logo">
             <Link to="/">
-              <h2>
+              <h1>
                 {`< Draw The Line`} <FontAwesomeIcon icon={faPaintBrush} />
-              </h2>
+              </h1>
             </Link>
           </div>
           <FontAwesomeIcon id="undo" icon={faUndo} />
@@ -22,9 +22,11 @@ function Header(props) {
           <FontAwesomeIcon id="download" icon={faSave} />
         </> :
         <div className="logo">
-          <h2>
+          <h1>
             Draw The Line  <FontAwesomeIcon icon={faPaintBrush} />
-          </h2>
+            <hr />
+            
+          </h1>
         </div>}
   </header>)
 }
